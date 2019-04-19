@@ -1,5 +1,5 @@
 <template>
-	<!-- 首页 -->
+	<!-- 首页页面 -->
 	<div class="index">
 		<!-- 导航轮播 -->
 		<template>
