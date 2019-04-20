@@ -15,12 +15,31 @@
 	 			</div>
 	 		</div>
 	 		<div class="rightmain">
-	 			<ul class="foodlist">
-	 				<li v-for="item of expandlist" :key="item.id">
-	 					<img :src="item.imageUrl" class="foodlistimg"/>
-	 					<div class="expandname">{{item.expandtext}}</div>
-	 				</li>
-	 			</ul>
+	 			 <el-table
+					:data="tableData"
+					:span-method="objectSpanMethod"
+					border
+					style="width: 100%; margin-top: 20px">
+					<el-table-column
+						prop="address"
+						label="基地"
+						width="100px">
+					</el-table-column>
+					<el-table-column
+						prop="content"
+						label="内容">
+					</el-table-column>
+					<el-table-column
+						prop="price"
+						label="报价"
+						width="180px">
+					</el-table-column>
+					<el-table-column
+						prop="other"
+						label="备注"
+						width="100px">
+					</el-table-column>
+				</el-table>
 	 		</div>
 	 	</div>
 	</div>
@@ -30,71 +49,92 @@
 	  export default {
 	    data(){
 	      return {
-	      	expandlist:[
-		      	{
-		      		id:"01",
-		      		imageUrl:require('@/assets/img/expand_img01.jpg'),
-		      		expandtext:"极限生存"
-		      	},
-		      	{
-		      		id:"02",
-		      		imageUrl:require('@/assets/img/expand_img02.jpg'),
-		      		expandtext:"溶洞探险"
-		      	},
-		      	{
-		      		id:"03",
-		      		imageUrl:require('@/assets/img/expand_img03.jpg'),
-		      		expandtext:"野外生存"
-		      	},
-		      	{
-		      		id:"04",
-		      		imageUrl:require('@/assets/img/expand_img04.jpg'),
-		      		expandtext:"水上拓展"
-		      	},
-		      	{
-		      		id:"05",
-		      		imageUrl:require('@/assets/img/expand_img05.jpg'),
-		      		expandtext:"破浪逐风"
-		      	},
-		      	{
-		      		id:"06",
-		      		imageUrl:require('@/assets/img/expand_img06.jpg'),
-		      		expandtext:"悬崖迫降"
-		      	},
-		      	{
-		      		id:"07",
-		      		imageUrl:require('@/assets/img/expand_img07.jpg'),
-		      		expandtext:"丰富知识"
-		      	},
-		      	{
-		      		id:"08",
-		      		imageUrl:require('@/assets/img/expand_img08.jpg'),
-		      		expandtext:"学生实践"
-		      	},
-		      	{
-		      		id:"09",
-		      		imageUrl:require('@/assets/img/expand_img09.jpg'),
-		      		expandtext:"基地项目"
-		      	},
-		      	{
-		      		id:"10",
-		      		imageUrl:require('@/assets/img/expand_img10.jpg'),
-		      		expandtext:"高空项目"
-		      	},
-		      	{
-		      		id:"11",
-		      		imageUrl:require('@/assets/img/expand_img11.jpg'),
-		      		expandtext:"真人CS"
-		      	},
-		      	{
-		      		id:"12",
-		      		imageUrl:require('@/assets/img/expand_img12.jpg'),
-		      		expandtext:"野外生存"
-		      	}
-	      	]
+					tableData: [{
+						id: '01',
+						address: '大奇山',
+						content: 'cs野战营',
+						price: '158元/人',
+						other: '含门票'
+					}, {
+						id: '02',
+						address: '大奇山',
+						content: '瀑降',
+						price: '350元/人',
+						other: '含门票'
+					}, {
+						id: '03',
+						address: '大奇山',
+						content: '峡谷探险（包括瀑降、溯溪）',
+						price: '98元/人',
+						other: '含门票'
+					}, {
+						id: '04',
+						address: '大奇山',
+						content: '空中抓杠、跨越、天梯、信任背摔、电网、毕业墙、盲人方阵、极限60秒、支援前线、98元/人罐头鞋、勇闯夺命岛、飞越激流',
+						price: '98元/人 任选三项',
+						other: '含门票'
+					},{
+						id: '05',
+						address: '富春江',
+						content: '激流勇进（印象富春江）',
+						price: '100元/人',
+						other: '含门票'
+					},{
+						id: '06',
+						address: '富春江',
+						content: '定向寻宝（漏江滩）',
+						price: '110元/人',
+						other: '含门票'
+					},{
+						id: '07',
+						address: '富春江',
+						content: '盘山石壁崖降',
+						price: '50元/人',
+						other: '含门票'
+					},{
+						id: '08',
+						address: '富春江',
+						content: '水上拔河',
+						price: '20元/人',
+						other: '不含门票'
+					},{
+						id: '09',
+						address: '红灯笼',
+						content: '扎筏泅渡',
+						price: '30元/人',
+						other: '不含门票'
+					},{
+						id: '10',
+						address: '红灯笼',
+						content: '定向寻宝（包括：智力迷宫）',
+						price: '98元/人',
+						other: '含门票'
+					},{
+						id: '11',
+						address: '红灯笼',
+						content: '皮筏竞渡',
+						price: '50元/人',
+						other: '含门票'
+					},{
+						id: '12',
+						address: '红灯笼',
+						content: '象鼻岩速降',
+						price: '50元/人',
+					}]
 	      }
-	    }
-	  }
+			},
+			methods:{
+				objectSpanMethod({row,column,rowIndex,columnIndex}){
+					if (columnIndex === 0) {
+						if (rowIndex % 4 === 0) {
+							return {rowspan: 4,colspan: 1};
+						} else  {
+							return {rowspan: 0,colspan: 0};
+						}
+					}			
+				}
+			}
+		}
 </script>
 
 <style scoped>
