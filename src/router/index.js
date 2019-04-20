@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// 主页
+// 主页主页
 import index from '@/components/index/index'
 // 潇洒桐庐
 import xsTonglu from '@/components/xsTonglu/home'
