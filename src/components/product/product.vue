@@ -7,14 +7,14 @@
 		 			<h2>景区拓展</h2>
 		 			<p>AREA DEVELOPMENT</p>
 		 		</div>
-		 		 <el-menu @select="handleSelect" default-active="1">
-				      <el-menu-item index="1">
+		 		 <el-menu @select="handleSelect" :default-active="navIndex">
+				      <el-menu-item index="baseshow">
 				        <span slot="title">基地展示</span>
 				      </el-menu-item>
-				      <el-menu-item index="2">
+				      <el-menu-item index="stupractice">
 				        <span slot="title">学生实践</span>
 				      </el-menu-item>
-				       <el-menu-item index="3" >
+				       <el-menu-item index="expand" >
 				        <span slot="title">拓展产品</span>
 				      </el-menu-item>
 			    </el-menu>
@@ -33,29 +33,40 @@
 	export default{
 		name:"product",
 		data(){
-	      return {
-	        breadcrumbItems: ['基地展示'],
-	      }
-	    },
-	     methods:{
-	      handleSelect(key, keyPath){
-	        switch(key){
-	          case '1':
-	            this.$router.push('/pages/baseshow');
-	            this.breadcrumbItems  = ['基地展示']
-	            break;
-	          case '2':
-	            this.$router.push('/pages/stupractice');
-	            this.breadcrumbItems  = ['学生实践']
-	            break;
-	          case '3':
-	            this.$router.push('/pages/expand');
-	            this.breadcrumbItems  = ['拓展产品']
-	            break;
-	        }
-	      }
-	
-	    }
+			return {
+				breadcrumbItems: ['基地展示'],
+				navIndex:'baseshow'
+			}			
+		},
+		watch:{
+			'$route':'getPath'
+		},
+		methods:{
+		handleSelect(key, keyPath){
+			switch(key){
+				case '1':
+					this.$router.push('/pages/baseshow');
+					this.breadcrumbItems  = ['基地展示']
+					break;
+				case '2':
+					this.$router.push('/pages/stupractice');
+					this.breadcrumbItems  = ['学生实践']
+					break;
+				case '3':
+					this.$router.push('/pages/expand');
+					this.breadcrumbItems  = ['拓展产品']
+					break;
+			}
+		},
+		getPath(){
+			var _this = this
+			var href = window.location.href
+			href = href.substring(href.lastIndexOf('/')+1,href.length);
+			_this.navIndex = href	
+			console.log(href);
+		}
+
+	}
 	}
 </script>
 

@@ -38,31 +38,30 @@
 	    watch:{
 		  '$route':'getPath'
 		},
-	     methods:{
-	      handleSelect(key, keyPath){
-	        switch(key){
-	          case 'trafficguide':
-	            this.$router.push('/pages/trafficguide');
-	            this.breadcrumbItems  = ['交通指南']
-	            break;
-	          case 'dependtravel':
-	            this.$router.push('/pages/dependtravel');
-	            this.breadcrumbItems  = ['自助游攻略']
-	            break;
-	        }
-	      },
-	       //监听路由
-	      getPath(){
-		    var _this=this
-		 	var href=window.location.href
-		 	href=href.substring(href.lastIndexOf("/")+1,href.length);
-		 	_this.navIndex=href
-		 	console.log(href);
-		  }
-	
-	    },
-	     //监听路由
-	    mounted(){
+		methods:{
+			handleSelect(key, keyPath){
+				switch(key){
+					case 'trafficguide':
+						this.$router.push('/pages/trafficguide');
+						this.breadcrumbItems  = ['交通指南']
+						break;
+					case 'dependtravel':
+						this.$router.push('/pages/dependtravel');
+						this.breadcrumbItems  = ['自助游攻略']
+						break;
+				}
+			},
+			//监听路由
+			getPath(){
+				var _this=this
+				var href=window.location.href
+				href=href.substring(href.lastIndexOf("/")+1,href.length);
+				_this.navIndex=href
+				console.log(href);
+			}
+	  },
+	  //监听路由
+	  mounted(){
 			var _this=this
 		 	var href=window.location.href
 		 	href=href.substring(href.lastIndexOf("/")+1,href.length);
