@@ -15,10 +15,10 @@
 	 			</div>
 	 		</div>
 	 		<div class="rightmain">
-	 			<ul class="foodlist">
-	 				<li v-for="item of foodlist" :key="item.id">
-	 					<img :src="item.imageUrl" class="foodlistimg"/>
-	 					<p>{{item.foodtext}}</p>
+	 			<ul class="pralist">
+	 				<li v-for="item of pralist" :key="item.id">
+	 					<img :src="item.imageUrl" class="pralistimg"/>
+	 					<p>{{item.msg}}</p>
 	 				</li>
 	 			</ul>
 	 		</div>
@@ -30,66 +30,26 @@
 	  export default {
 	    data(){
 	      return {
-	      	foodlist:[
+	      	pralist:[
 		      	{
 		      		id:"01",
-		      		imageUrl:require('@/assets/img/expand_img01.jpg'),
-		      		foodtext:"十大特色菜:三野茅草鸡"
+		      		imageUrl:require('@/assets/img/student1.jpg'),
+		      		msg:"学生实践"
 		      	},
 		      	{
 		      		id:"02",
-		      		imageUrl:require('@/assets/img/foodimg02.jpg'),
-		      		foodtext:"十大特色菜:香酱过桥排"
+		      		imageUrl:require('@/assets/img/student2.jpg'),
+		      		msg:"学生实践"
 		      	},
 		      	{
 		      		id:"03",
-		      		imageUrl:require('@/assets/img/foodimg03.jpg'),
-		      		foodtext:"十大特色菜:鸿运脆皮鸡"
+		      		imageUrl:require('@/assets/img/student3.jpg'),
+		      		msg:"学生实践"
 		      	},
 		      	{
 		      		id:"04",
-		      		imageUrl:require('@/assets/img/foodimg04.jpg'),
-		      		foodtext:"十大特色菜:农家沸豆腐	"
-		      	},
-		      	{
-		      		id:"05",
-		      		imageUrl:require('@/assets/img/foodimg05.jpg'),
-		      		foodtext:"十大特色菜:七里雪花松"
-		      	},
-		      	{
-		      		id:"06",
-		      		imageUrl:require('@/assets/img/foodimg06.jpg'),
-		      		foodtext:"十大特色菜:渔夫丰庆"
-		      	},
-		      	{
-		      		id:"07",
-		      		imageUrl:require('@/assets/img/foodimg07.jpg'),
-		      		foodtext:"十大特色菜:农家布袋鸡"
-		      	},
-		      	{
-		      		id:"08",
-		      		imageUrl:require('@/assets/img/foodimg08.jpg'),
-		      		foodtext:"十大特色菜:土豆饼"
-		      	},
-		      	{
-		      		id:"09",
-		      		imageUrl:require('@/assets/img/foodimg09.jpg'),
-		      		foodtext:"十大特色菜:金牌兔肉"
-		      	},
-		      	{
-		      		id:"10",
-		      		imageUrl:require('@/assets/img/foodimg10.jpg'),
-		      		foodtext:"十大特色菜:石磨豆腐煲	"
-		      	},
-		      	{
-		      		id:"11",
-		      		imageUrl:require('@/assets/img/foodimg11.jpg'),
-		      		foodtext:"药膳: 砂锅炖土鸡"
-		      	},
-		      	{
-		      		id:"12",
-		      		imageUrl:require('@/assets/img/foodimg12.jpg'),
-		      		foodtext:"农家菜:农家土豆饼"
+		      		imageUrl:require('@/assets/img/student4.jpg'),
+		      		msg:"学生实践	"
 		      	}
 	      	]
 	      }
@@ -186,19 +146,19 @@
 		display: block;
 		margin: 20px auto;
 	}
-	.foodlist{
+	.pralist{
 		width: 100%;
 		display: flex;
 		flex-direction: row;
         flex-wrap: wrap;
 	}
-	.foodlist li{
+	.pralist li{
 		width: 29%;
 		padding: 10px 0;
 		text-align: center;
 		margin: 0 2%;
 	}
-	.foodlistimg{
+	.pralistimg{
 		width: 100%;
 		margin-bottom: 10px;
 	}

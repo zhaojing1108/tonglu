@@ -8,7 +8,7 @@
 		 			<p>HOTEL CUSINE</p>
 		 		</div>
 		 		 <el-menu @select="handleSelect" :default-active="navIndex">
-				      <el-menu-item index="food">
+				      <el-menu-item index="f	ood">
 				        <span slot="title">桐庐美食</span>
 				      </el-menu-item>
 				      <el-menu-item index="house" >

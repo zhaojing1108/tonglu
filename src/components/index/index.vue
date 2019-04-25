@@ -1,5 +1,5 @@
 <template>
-	<!-- 首页页面 -->
+	<!-- 首页 -->
 	<div class="index">
 		<!-- 导航轮播 -->
 		<template>
@@ -53,9 +53,9 @@
 				<el-row >
 				  	<el-col :span="10" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
 				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;">
-			    			<el-tab-pane label="热门活动"><img :src="activity.url" alt=""></el-tab-pane>
-			    			<el-tab-pane label="景区新闻"><img :src="activity.url" alt=""></el-tab-pane>
-			    			<el-tab-pane label="旅游新闻"><img :src="activity.url" alt=""></el-tab-pane>
+			    			<el-tab-pane label="热门活动"><img src="../../assets/img/expand_hong.jpg" alt=""></el-tab-pane><!-- <img :src="activity.url" alt=""> -->
+			    			<el-tab-pane label="景区新闻"><img src="../../assets/img/expand_img01.jpg"></el-tab-pane><!-- <img :src="activity.url" alt=""> -->
+			    			<el-tab-pane label="旅游新闻"><img src="../../assets/img/expand_img02.jpg"></el-tab-pane><!-- <img :src="activity.url" alt=""> -->
 			  			</el-tabs>
 				  	</div></el-col>
 
@@ -70,7 +70,7 @@
 				  	<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 				  		<ul class="newsText">
 			 				<li  v-for="item of activity" :key="item.id">
-			 					<p style="color: #444444 !important;padding-top: 3px;">{{item.content}}</p>
+			 					<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
 			 					<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
 			 				</li>
 			 			</ul>							
@@ -99,11 +99,11 @@
 		<div class="middle_content">
 			<img class="middle_content_nav" src="./../../assets/img/index_screen.png" >
 			<el-row style="padding-top: 0;" >
-				<el-col :span="6" v-for="item of spotIntrouduce"><div class="grid-content bg-purple">
+				<el-col :span="6" v-for="(value, index) of spotIntrouduce" :key = "index"><div class="grid-content bg-purple">
 					<figure>
-						<img  :src="spotIntrouduce.imgUrl" alt="">
+						<img :src="value.imgUrl" >
 						<figcaption>
-							<h2>{{spotIntrouduce.name}}</h2>
+							<h2>{{value.name}}</h2>
 						</figcaption>	
 					</figure>
 				</div></el-col>
@@ -133,9 +133,12 @@ export default {
             tabPosition: 'right',
             bannermenu:{},
             bannerList:{},
-            spotIntrouduce:{},
+			spotIntrouduce:{},
+			spottitles:{},
+			spotimgs:{},
             activity:{},
-            adver:{},
+			adver:{},
+			title:{},
 		}
 	},
 	created () {
@@ -166,13 +169,16 @@ export default {
 		    })
 	   	},
 	   	getTravelPoint(){
-	   		this.axios.get(api.spotUrl).then(response=>{
-	   			this.spotIntrouduce = response.data[0]
-	   			// console.log(response.data[0].name)
+			var spottitles = []				 
+			this.axios.get(api.spotUrl).then(response=>{
+				this.spotIntrouduce = response.data
+			
+				console.log(response.data)
 	   		}).catch(error => {
 	   			console.log(error)
-	   		})
-	   	},
+			})
+		},
+		
 	   	getActivity(){
 	   		this.axios.get(api.activityUrl).then(response => {
 	   			this.activity = response.data;

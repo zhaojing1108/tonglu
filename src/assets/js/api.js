@@ -1,4 +1,4 @@
-const base = 'http://192.168.123.132:8000/api/'
+const base = 'http://172.16.100.201:8000/api/'
 export default {
     spotUrl: `${base}show/getTravelPoint`,//旅游景点url
     recruitUrl:`${base}show/getTalentRecruitment`,//招聘url
