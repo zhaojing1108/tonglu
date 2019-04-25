@@ -2,10 +2,10 @@
 	<div>
 		<div class="news_content">
  			<ul class="newslist" >
- 					<li v-for="item of newslist" :key="item.id">
- 					<img :src="item.imageUrl"/>
- 					<h4 @click="change">{{item.newstitle}}</h4>
- 					<p>{{item.newstext}}</p>
+ 					<li v-for="(item,index) of newslist" :key="item.id">
+ 					<img :src="item.url"/>
+ 					<h4 @click="change">{{item.title}}</h4>
+ 					<p>{{item.content}}</p>
  				</li>
  			</ul>
  			<div class="newsw">
@@ -15,6 +15,7 @@
 	</div>
 </template>
 <script>
+import api from '@/assets/js/api'
 	export default {
 		name: 'News',
 		data(){
@@ -23,9 +24,20 @@
 				flag:true
 			}
 		},
+		created(){
+			this.getNews()
+		},
 		methods:{
 			change(){
-				this.$router.push({name:"acitivityDetails" ,params:{id:"1"}})
+				this.$router.push({name:"newsDetails" ,params:{id:"1"}})
+			},
+			getNews(){
+				this.axios.get(api.activityUrl).then(response =>{
+					this.newslist = response.data
+					console.log(response.data)
+				}).catch(error =>{
+					console.log(error)
+				})
 			}
 		}	
 	}
@@ -52,9 +64,8 @@
 	padding-right: 30px;
 }
 .news_content li h4{
-	padding: 15px 0;
+	padding: 20px 0 7px 0;
 	cursor: pointer;
-	font-size: 16px;
 	color: #45a2cc;
 }
 .news_content li h4:hover{
@@ -64,3 +75,4 @@
 	color: #777777;
 	}
 </style>
+

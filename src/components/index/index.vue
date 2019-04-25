@@ -70,8 +70,8 @@
 				  	<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 				  		<ul class="newsText">
 			 				<li  v-for="item of activity" :key="item.id">
-			 					<p style="color: #444444 !important;padding-top: 3px;">{{item.description}}</p>
-			 					<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.content}}</p>
+			 					<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
+			 					<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
 			 				</li>
 			 			</ul>							
 				  	</div></el-col>
@@ -99,11 +99,11 @@
 		<div class="middle_content">
 			<img class="middle_content_nav" src="./../../assets/img/index_screen.png" >
 			<el-row style="padding-top: 0;" >
-				<el-col :span="6" v-for="item of spotIntrouduce"><div class="grid-content bg-purple">
+				<el-col :span="6" v-for="(value, index) of spotIntrouduce" :key = "index"><div class="grid-content bg-purple">
 					<figure>
-						<img  :src="spotIntrouduce.imglist" alt="">
+						<img :src="value.imgUrl" >
 						<figcaption>
-							<h2 >{{title}}</h2>
+							<h2>{{value.name}}</h2>
 						</figcaption>	
 					</figure>
 				</div></el-col>
@@ -133,12 +133,12 @@ export default {
             tabPosition: 'right',
             bannermenu:{},
             bannerList:{},
-            spotIntrouduce:{},
+			spotIntrouduce:{},
+			spottitles:{},
+			spotimgs:{},
             activity:{},
 			adver:{},
 			title:{},
-			imglist:{},
-
 		}
 	},
 	created () {
@@ -169,17 +169,14 @@ export default {
 		    })
 	   	},
 	   	getTravelPoint(){
-	   		this.axios.get(api.spotUrl).then(response=>{
-	   			this.spotIntrouduce = response.data
-	   			this.spotIntrouduce.forEach(element => {
-					var title = element.enName
-					var imglist = element.imgUrl
-					// console.log(title)
-					// console.log(imglist)
-				});
+			var spottitles = []				 
+			this.axios.get(api.spotUrl).then(response=>{
+				this.spotIntrouduce = response.data
+			
+				console.log(response.data)
 	   		}).catch(error => {
 	   			console.log(error)
-			   })
+			})
 		},
 		
 	   	getActivity(){
