@@ -45,7 +45,7 @@
 					    <div>
 					    	<p>工作地点：{{item.address}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职位类别：{{item.categories}}</p>
 					    	<p class="rzyqtext">[任职要求]</p>
-					    	<p>{{item.content}}</p>
+					    	<p v-html="item.content">{{item.content}}</p>
 					    	<!--<p style="margin-top: 15px;">一、岗位要求</p>
 					    	<p v-for="item2 in item.jobrequire" :key="item2.index">
 					    		{{item2.requiretext}}

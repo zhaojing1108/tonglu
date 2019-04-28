@@ -7,7 +7,7 @@
 		 			<h2>景区推荐</h2>
 		 			<p>RECOMMENDATION</p>
 		 		</div>
-		 		 <el-menu default-active="1" @select="handleSelect">
+		 		 <el-menu default-active="navIndex" @select="handleSelect">
 				      <el-menu-item v-for="item of spotname" :key="item.id" :index="item.id+''">
 				        <span slot="title">{{item.name}}</span>
 				      </el-menu-item>
@@ -63,25 +63,9 @@
 				engnav:"",
 				spotnav: "",
 				transport:"",
-				spotImgs:[
-		     		{
-			          imageUrl: require('@/assets/img/spot_ylxj01.jpg')
-			        },
-			        {
-			          imageUrl: require('@/assets/img/spot_ylxj02.jpg')
-			        },
-			        {
-			          imageUrl: require('@/assets/img/spot_ylxj03.jpg')
-			        },
-			        {
-			          imageUrl: require('@/assets/img/spot_ylxj04.jpg')
-			        },
-			        {
-			          imageUrl: require('@/assets/img/spot_ylxj05.jpg')
-			        }
-		     	],
-				spotname:[]
-		     	
+				spotImgs:[],
+				spotname:[],
+		    navIndex:''
 			}
 		},
 		methods:{
@@ -104,6 +88,7 @@
 			},
 			getHomeInfoSucc (res) {
 				res=res.data
+				console.log(res)
 				this.spotname=res
 				this.nav=this.spotname[0].name
 				this.engnav=this.spotname[0].enName
@@ -118,7 +103,6 @@
 			
 		}
 	}
-
 </script>
 
 <style scoped>

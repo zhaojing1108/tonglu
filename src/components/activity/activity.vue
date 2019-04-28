@@ -3,17 +3,20 @@
 	  <el-header class="banner"></el-header>
 	  	<div class="container childpage">
 		 	<el-card shadow="always" class="container">
-		      	<el-breadcrumb separator="/">
-					<el-breadcrumb-item>活动咨询</el-breadcrumb-item>
-			    	<el-breadcrumb-item :to="{ path: '>' }"><span style="">首页</span></el-breadcrumb-item>			  
-			    	<el-breadcrumb-item>当前位置：</el-breadcrumb-item>
-				</el-breadcrumb>
-				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  >
-					<el-menu-item index="1">
-						<el-button @click="handleSelect" type="primary" >景区新闻</el-button>
+				<div class="righttitle_r">
+					<el-breadcrumb separator="/">
+						<el-breadcrumb-item :to="{ path: '>' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
+						<el-breadcrumb-item ><span>活动咨询</span></el-breadcrumb-item>
+						<el-breadcrumb-item  ><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
+					</el-breadcrumb>
+				</div>
+
+				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" >
+					<el-menu-item index="news">
+						<el-button type="primary" slot="title" >景区新闻</el-button>
 					</el-menu-item>
-					<el-menu-item index="2" >
-					    <el-button  type="primary" >热门活动</el-button>
+					<el-menu-item index="acitivity" >
+					    <el-button  type="primary" slot="title" >热门活动</el-button>
 					</el-menu-item>
 				</el-menu>
 				<div class="news">
@@ -23,29 +26,32 @@
 		</div>
 	</el-container>
 	
+	
 </template>
 <script>
 	export default {
 		name: 'Activity',
 		data(){
 			return{
-				 breadcrumbItems: ['景区新闻'],
+				breadcrumbItems: '景区新闻',
+	        	navIndex:'news'
 			}
 		},
 		methods:{
 	      	handleSelect(key, keyPath){	      
+				//   console.log(key, keyPath)
 	        	switch(key){
-	          		case '1':
+	          		case 'news':
 	            	this.$router.push('/pages/news');
-		            this.breadcrumbItems  = ['景区新闻']
+		            this.breadcrumbItems  = '景区新闻'
 		            break;
-		            case '2':
+		            case 'acitivity':
 	            	this.$router.push('/pages/hotactivity');
-		            this.breadcrumbItems  = ['热门活动']
+		            this.breadcrumbItems = '热门活动'
 		            break;		          	
 	        	}
-	      	}
-	    }
+			  },
+		},
 	}
 </script>
 
@@ -58,8 +64,9 @@
 	}
 	.el-card{
 		margin-top: 30px;
+		position: relative;
 	}
-	.el-breadcrumb{
+	/* .el-breadcrumb{
 		width: 90%;
 		border-bottom: 1px #ccc solid;
 		margin: 0 auto;
@@ -68,7 +75,30 @@
 		display: block;
 		padding: 10px;
 		float: right;
+	} */
+	.righttitle_r{
+		width: 95%;
+		font-size: 12px;
 	}
+	.righttitle_r{
+		font-size: 12px !important;
+		color: #777777;
+		position: absolute;
+	}
+	.el-breadcrumb {
+	    font-size: 12px;
+	    line-height: 1;
+		float:right;
+	}
+	.el-breadcrumb__inner, .el-breadcrumb__inner a{
+	    font-weight: 300 !important;
+	    color: #777777 !important;
+	}
+	.el-breadcrumb__inner, .el-breadcrumb__inner a {
+   		font-weight: 300 !important;
+	    color: #777777 !important;
+	}
+
 	.el-menu-item  button{
 		width: 130px;
 		background-color: #499bbf;

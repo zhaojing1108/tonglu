@@ -2,10 +2,10 @@
 	<div>
 		<div class="news_content">
  			<ul class="newslist" >
- 					<li v-for="(item,index) of newslist" :key="item.id">
- 					<img :src="item.url"/>
- 					<h4 @click="change">{{item.title}}</h4>
- 					<p>{{item.content}}</p>
+ 					<li v-for="item of activity" :key="item.id" >
+ 					<img :src="item.imgUrl"/>
+ 					<h4 @click="change(item.title,item.content)">{{item.title}}</h4>
+					<p>{{item.description}}</p>
  				</li>
  			</ul>
  			<div class="newsw">
@@ -20,25 +20,25 @@ import api from '@/assets/js/api'
 		name: 'News',
 		data(){
 			return{
-				newslist:{},
+				activity:[],
 				flag:true
 			}
 		},
 		created(){
-			this.getNews()
+			this.getActivity()
 		},
 		methods:{
-			change(){
-				this.$router.push({name:"newsDetails" ,params:{id:"1"}})
+			change(title,content){
+				this.$router.push({name:"acitivityDetails" ,params:{title:title,content:content}})
 			},
-			getNews(){
-				this.axios.get(api.activityUrl).then(response =>{
-					this.newslist = response.data
+			getActivity(){
+				this.axios.get(api.activityUrl).then(response => {
+					this.activity = response.data;
 					console.log(response.data)
-				}).catch(error =>{
+				}).catch(error => {
 					console.log(error)
 				})
-			}
+			},
 		}	
 	}
 </script>
