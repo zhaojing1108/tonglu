@@ -1,5 +1,5 @@
-// const base = 'http://172.16.100.201:8000/api/'
-const base = 'http://192.168.123.226:8000/api/'
+const base = 'http://172.16.100.201:8000/api/'
+// const base = 'http://192.168.123.226:8000/api/'
 
 export default {
     spotUrl: `${base}show/getTravelPoint`,//旅游景点url
