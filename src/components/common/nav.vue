@@ -7,7 +7,7 @@
 
 			<el-col :span="19">
 				<div class="nav_text">
-					<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+					<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" style="width:100%">
 						<el-menu-item index="1" class="nav_li">
 							<router-link class="router_link" to="/">网站首页</router-link>
 						</el-menu-item>
@@ -101,14 +101,13 @@
 		        	'dependtravel':'6-2',
 		        	'companypro':'8-1',
 		        	'recruit':'8-2',
-		        	'cooperate':'8-3'
-		        	
+		        	'cooperate':'8-3'		        	
 		        }
 		      };
 		    },
 		    methods: {
 		      handleSelect(key, keyPath) {
-		        console.log(key, keyPath);
+						console.log(key, keyPath);
 		      }
 		    },
 		    mounted(){
@@ -160,7 +159,7 @@
 		}
 	}
 	.nav_li{
-		padding: 0 11px;
+		padding: 0 4px;
 	}
 	.el-icon-arrow-down:before {
 	    display: none;

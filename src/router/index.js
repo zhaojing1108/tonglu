@@ -19,9 +19,9 @@ import spot from '@/components/spot/spot'
 // 活动咨询
 import activity from '@/components/activity/activity'
 import hotactivity from '@/components/activity/pages/hotactivity'
-import acitivityDetails from '@/components/activity/pages/children/acitivityDetails'
+import acitivityDetails from '@/components/activity/pages/acitivityDetails'
 import news from '@/components/activity/pages/news'
-import newsDetails from '@/components/activity/pages/children/newsDetails'
+import newsDetails from '@/components/activity/pages/newsDetails'
 
 // 旅游指南
 import tourist from '@/components/tourist/tourist'
@@ -119,7 +119,7 @@ const routes = [
 				component:news,
 			},
 			{
-				path:'/pages/children/newsDetails',
+				path:'/pages/newsDetails/',
 				name:'newsDetails',
 				component:newsDetails
 			},
@@ -129,7 +129,7 @@ const routes = [
 				component:hotactivity
 			},
 			{
-				path:'/pages/children/acitivityDetails',
+				path:'/pages/acitivityDetails',
 				name:'acitivityDetails',
 				component:acitivityDetails
 			}

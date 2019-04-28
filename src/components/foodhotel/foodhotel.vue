@@ -8,7 +8,7 @@
 		 			<p>HOTEL CUSINE</p>
 		 		</div>
 		 		 <el-menu @select="handleSelect" :default-active="navIndex">
-				      <el-menu-item index="f	ood">
+				      <el-menu-item index="food">
 				        <span slot="title">桐庐美食</span>
 				      </el-menu-item>
 				      <el-menu-item index="house" >
@@ -53,22 +53,21 @@
 	      },
 	       //监听路由
 	      getPath(){
-		    var _this=this
-		 	var href=window.location.href
-		 	href=href.substring(href.lastIndexOf("/")+1,href.length);
-		 	_this.navIndex=href
-		 	console.log(href);
-		  }
-	
+					var _this=this
+					var href=window.location.href
+					href=href.substring(href.lastIndexOf("/")+1,href.length);
+					_this.navIndex=href
+					console.log(href);
+				}	
 	    },
 	    //监听路由
-	    mounted(){
-			var _this=this
-		 	var href=window.location.href
-		 	href=href.substring(href.lastIndexOf("/")+1,href.length);
-		 	_this.navIndex=href
-		 	console.log(href);
-		 }
+		mounted(){
+		var _this=this
+		var href=window.location.href
+		href=href.substring(href.lastIndexOf("/")+1,href.length);
+		_this.navIndex=href
+		console.log(href);
+		}
 	}
 </script>
 

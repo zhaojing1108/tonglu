@@ -1,29 +1,24 @@
 <template>
 	<div>
 		<div id="newsDetails" >
-		<div v-for="item of data" :key="item.id">
-			<h4>{{item.title}}</h4>
-			<p>{{item.content}}</p>
-			<img :src="item.url" alt="">	
-					
+		<div>
+			<h4>{{this.$route.params.title}}</h4>
+			<p v-html="this.$route.params.content">>{{this.$route.params.content}}</p>
 		</div>
-		<div>{{this.$route.params.id}}</div>
 	</div>
 </div>
 	
 </template>
 <script>
 	import api from '@/assets/js/api'
-	import Bus from './../bus.js'
 	export default {
 		name: 'NewsDetails',
 		data(){
 			return{
-				data:'默认值'
+				activity:{}
 			}
 		},
-    }
-
+	}
 </script>
 
 <style scoped>

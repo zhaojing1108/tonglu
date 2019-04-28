@@ -6,19 +6,19 @@
 			<!-- 轮播图 -->
 			<el-carousel style="height: 500px; position: relative;" :interval="3000" arrow="always">
 				<el-carousel-item  v-for="(imgurl, index) in bannerList" v-show="index===mark" :key="index" >
-					<img :src='imgurl.imgAddress' alt="图片加载中。。。">
+					<router-link to="/spot"><img :src='imgurl.imgAddress' alt="图片加载中。。。"></router-link>
 				</el-carousel-item>
 			</el-carousel>
 			<!-- 固定栏 -->
 			<div class="container"  style="position: absolute;top: 0;left: 50%;margin-left: -595px;height: 500px;">
 				<div class="fix_bar">				
-					<div class="fix_bar_item" v-for="item of bannermenu" :key="item.id">				
+					<div class="fix_bar_item" v-for="item of bannermenu" :key="item.id" @click="goPage(item.id)">				
 						  <el-col :span="6"><div class="grid-content bg-purple">
 						  	<img :src="item.imgUrl" >
 						  </div></el-col>
 						  <el-col :span="18"><div class="grid-content bg-purple">
-						  	<p><a href="https://ylxjjqjt.fliggy.com/" style="color:#fff;font-size: 16px;">{{item.titile}}</a></p>
-							<p><a href="https://ylxjjqjt.fliggy.com/" class="bannertext"></a>{{item.description}}</p>
+						  	<p><a  style="color:#fff;font-size: 16px;">{{item.titile}}</a></p>
+							<p><a  class="bannertext"></a>{{item.description}}</p>
 						  </div></el-col>													
 					</div>
 				</div>		
@@ -53,15 +53,15 @@
 				<el-row >
 				  	<el-col :span="10" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
 				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;">
-			    			<el-tab-pane label="热门活动"><img src="../../assets/img/expand_hong.jpg" alt=""></el-tab-pane><!-- <img :src="activity.url" alt=""> -->
-			    			<el-tab-pane label="景区新闻"><img src="../../assets/img/expand_img01.jpg"></el-tab-pane><!-- <img :src="activity.url" alt=""> -->
-			    			<el-tab-pane label="旅游新闻"><img src="../../assets/img/expand_img02.jpg"></el-tab-pane><!-- <img :src="activity.url" alt=""> -->
+			    			<el-tab-pane label="热门活动"><img :src="activity.imgUrl" alt=""></el-tab-pane>
+			    			<el-tab-pane label="景区新闻"><img :src="activity.imgUrl" alt=""></el-tab-pane>
+			    			<el-tab-pane label="旅游新闻"><img :src="activity.imgUrl" alt=""></el-tab-pane>
 			  			</el-tabs>
 				  	</div></el-col>
 
 				  	<el-col :span="1" style="position: relative ">
 				  		<ul class="newsDate" >
-			 				<li v-for="item of activity" :key="item.id"> <!--  -->
+			 				<li v-for="item of activity" :key="item.id" > 
 			 					<p style="padding-top: 15px;font-size: 16px;">{{item.createTime | formatDate }}</p>
 			 					<p style="font-size: 12px;">{{item.createTime | formatDateTwo}}</p>
 			 				</li>
@@ -69,7 +69,7 @@
 				  	</el-col>
 				  	<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 				  		<ul class="newsText">
-			 				<li  v-for="item of activity" :key="item.id">
+			 				<li  v-for="item of activity" :key="item.id" @click="goActivity(item.title,item.content)">
 			 					<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
 			 					<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
 			 				</li>
@@ -77,7 +77,7 @@
 				  	</div></el-col>
 				</el-row>
 				
-				<div class="look">查看更多</div>
+				<div class="look" @click="lookActivity()">查看更多</div>
 			</div>		
 			
 		</el-row>
@@ -92,23 +92,23 @@
 							<p>{{adver.content}}</p>
 						</li>
 					</div></el-col>
-					<el-col :span="10"><div class="grid-content bg-purple click">点击了解详情</div></el-col>
+					<el-col :span="10"><div class="grid-content bg-purple click"><p @click="goAd(activity[0].title,activity[0].content)">点击了解详情</p></div></el-col>
 				</el-row>
 		</div>
 		<!-- 景点介绍 -->
 		<div class="middle_content">
 			<img class="middle_content_nav" src="./../../assets/img/index_screen.png" >
-			<el-row style="padding-top: 0;" >
-				<el-col :span="6" v-for="(value, index) of spotIntrouduce" :key = "index"><div class="grid-content bg-purple">
+			<el-row style="padding-top: 20px;" >
+				<el-col :span="6" v-for="value of spotIntrouduce" :key = "value.id" style="padding-top: 20px;" ><div class="grid-content bg-purple">
 					<figure>
 						<img :src="value.imgUrl" >
-						<figcaption>
+						<figcaption  @click="goSpot(value.id)">
 							<h2>{{value.name}}</h2>
 						</figcaption>	
 					</figure>
 				</div></el-col>
 			</el-row>
-			<div class="look">查看更多</div>
+			<div class="look" @click="lookSpot()">查看更多</div>
 		</div>
 		<!-- 地图 -->
 		<div class="foot_map" style="position: relative;">
@@ -139,6 +139,7 @@ export default {
             activity:{},
 			adver:{},
 			title:{},
+			navIndex:"spot"
 		}
 	},
 	created () {
@@ -155,7 +156,7 @@ export default {
 		getBannerMenu () {
 		    this.axios.get(api.bannermenuUrl).then(response => {
 		       this.bannermenu = response.data
-		       // console.log(response.data[0])
+		    //    console.log(response.data)
 		    }).catch(error => {
 		       console.log(error)
 		    })
@@ -163,7 +164,7 @@ export default {
 	   	getBanner () {
 		    this.axios.get(api.bannerUrl).then(response => {
 		       this.bannerList = response.data
-		       // console.log(response.data[0])
+		    //    console.log(response.data[0])
 		    }).catch(error => {
 		       console.log(error)
 		    })
@@ -171,19 +172,16 @@ export default {
 	   	getTravelPoint(){
 			var spottitles = []				 
 			this.axios.get(api.spotUrl).then(response=>{
-				this.spotIntrouduce = response.data
-			
-				console.log(response.data)
+				this.spotIntrouduce = response.data			
+				// console.log(response.data)
 	   		}).catch(error => {
 	   			console.log(error)
 			})
-		},
-		
+		},		
 	   	getActivity(){
 	   		this.axios.get(api.activityUrl).then(response => {
 	   			this.activity = response.data;
 	   			// console.log(response.data.updateTime)
-
 	   		}).catch(error => {
 	   			console.log(error)
 	   		})
@@ -195,7 +193,35 @@ export default {
 	   		}).catch(error => {
 	   			console.log(error)
 	   		})
-	   	},
+		   },
+		goPage(id){
+			if(id==1){
+				window.location.href = "https://ylxjjqjt.fliggy.com/"
+			}else if(id==2){
+				this.$router.push({path:'/pages/house',query:{id:this.id}})
+			}else if(id==3){
+				this.$router.push({path:'/pages/food',query:{id:this.id}})
+			}else if(id==4){
+				this.$router.push({path:'/pages/trafficguide',query:{id:this.id}})
+			}else if(id==5){
+				this.$router.push({path:'/pages/dependtravel',query:{id:this.id}})
+			}
+		},
+		goActivity(title,content){
+			this.$router.push({name:"newsDetails" ,params:{title:title,content:content}})
+		},
+		goAd(title,content){
+			this.$router.push({name:"acitivityDetails" ,params:{title:title,content:content}})
+		},
+		lookActivity(){
+			this.$router.push({path:'/pages/news',params:{id:this.id}})
+		},
+		lookSpot(){
+			this.$router.push({path:'/spot',params:{id:this.id}})
+		},
+		goSpot(id){
+			this.$router.push({path:'/spot',params:{id:this.id}})						
+		}
 	},
 	filters: {
        formatDate(time) {
@@ -214,6 +240,7 @@ export default {
 <style scoped>
 	li{
 		list-style: none;
+		cursor: pointer;
 	}
 	@font-face {
 		font-family: 'iconfont';
@@ -245,16 +272,16 @@ export default {
 		left: 0;
 		width: 250px;
 		height: 460px;
-		background-color: #272121a6;
+		background-color: rgba(42, 42, 43, 0.5);
 		cursor: pointer;
 		z-index: 9999;
-		padding: 20px 0;
+		padding: 20px 0;	
 	}
 	.fix_bar_item{
 		height: 75px;
 		color: #fff;
 		margin: 0 auto;
-		padding: 10px;		
+		padding: 10px;	
 	}
 	.fix_bar_item p{
 		font-size: 14px;

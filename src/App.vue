@@ -20,7 +20,7 @@
 
 <style>
 .nav .el-row{
-	width: 1190px;
+	width: 1170px;
 	margin: 0px auto;
 	padding-top: 10px;	
 }
