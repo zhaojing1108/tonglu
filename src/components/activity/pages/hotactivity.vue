@@ -3,7 +3,7 @@
 		<div class="news_content">
  			<ul class="newslist" >
  					<li v-for="item of activity" :key="item.id" >
- 					<img :src="item.imgUrl"/>
+ 					<img :src="item.img"/>
  					<h4 @click="change(item.title,item.content)">{{item.title}}</h4>
 					<p>{{item.description}}</p>
  				</li>
@@ -32,9 +32,14 @@ import api from '@/assets/js/api'
 				this.$router.push({name:"acitivityDetails" ,params:{title:title,content:content}})
 			},
 			getActivity(){
-				this.axios.get(api.activityUrl).then(response => {
-					this.activity = response.data;
-					console.log(response.data)
+				this.axios.get(api.activityUrl).then(response => {							
+					for(let i = 0; i<response.data.length;i++){					
+						if(response.data[i].category == 1){
+						console.log(response.data[i])
+						this.activity.push(response.data[i]);
+						console.log(this.activity)
+						}				
+					}			
 				}).catch(error => {
 					console.log(error)
 				})
