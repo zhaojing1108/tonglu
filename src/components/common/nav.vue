@@ -21,22 +21,9 @@
 							<router-link  to="/pages/celebrity_tl"><el-menu-item class="router_link" index="2-5">桐庐名人</el-menu-item></router-link>
 						</el-submenu>
 
-						<el-submenu index="3" class="nav_li">
-							<template slot="title"><router-link class="router_link" to="#" >景区推荐</router-link></template>
-							<el-submenu index="3-4">
-								<template slot="title" style="color: #000">大瑶琳景区</template>
-								<router-link class="router_link" to="/spot"><el-menu-item index="3-4-1">瑶琳仙境</el-menu-item></router-link>
-								<router-link class="router_link" to="/spot"><el-menu-item index="3-4-2">红灯笼乡村家园</el-menu-item></router-link>
-								<router-link class="router_link" to="/spot"><el-menu-item index="3-4-3">红石湾</el-menu-item></router-link>
-							</el-submenu>
-							<el-submenu index="3-5">
-								<template slot="title">富春江景区</template>
-								<router-link class="router_link" to="/spot"><el-menu-item index="3-5-1">严子陵钓台</el-menu-item></router-link>
-								<router-link class="router_link" to="/spot"><el-menu-item index="3-5-2">天目溪漂流</el-menu-item></router-link>
-								<router-link class="router_link" to="/spot"><el-menu-item index="3-5-3">印象富春江</el-menu-item></router-link>
-							</el-submenu>
-							<router-link class="router_link" to="/spot"><el-menu-item index="3-6">大奇山国家森林公园</el-menu-item></router-link>
-						</el-submenu>
+						<el-menu-item index="3" class="nav_li">
+							<router-link class="router_link" to="/spot" >景区推荐</router-link>
+						</el-menu-item>
 
 						<el-submenu index="4" class="nav_li">
 							<template slot="title"><router-link to="#">活动资讯</router-link></template>
@@ -159,7 +146,7 @@
 		}
 	}
 	.nav_li{
-		padding: 0 4px;
+		
 	}
 	.el-icon-arrow-down:before {
 	    display: none;

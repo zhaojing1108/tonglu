@@ -50,7 +50,7 @@
 			<!-- 活动咨询 -->
 			<div class="middle_content">
 				<img class="middle_content_nav" src="./../../assets/img/index_activity.png" alt="">
-				<el-row >
+				<el-row style="padding-top: 20px; height:250px; overflow:hidden">
 				  	<el-col :span="10" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
 				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;">
 			    			<el-tab-pane label="热门活动"><img :src="activity.imgUrl" alt=""></el-tab-pane>
@@ -98,7 +98,7 @@
 		<!-- 景点介绍 -->
 		<div class="middle_content">
 			<img class="middle_content_nav" src="./../../assets/img/index_screen.png" >
-			<el-row style="padding-top: 20px;" >
+			<el-row style="padding-top: 20px; height:550px; overflow:hidden">
 				<el-col :span="6" v-for="value of spotIntrouduce" :key = "value.id" style="padding-top: 20px;" ><div class="grid-content bg-purple">
 					<figure>
 						<img :src="value.imgUrl" >

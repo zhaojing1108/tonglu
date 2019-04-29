@@ -34,8 +34,13 @@ import api from '@/assets/js/api'
 			},
 			getActivity(){
 				this.axios.get(api.activityUrl).then(response => {
-					this.activity = response.data;
-					console.log(response.data)
+					for(let i = 0; i<response.data.length;i++){					
+						if(response.data[i].category == 2){
+						console.log(response.data[i])
+						this.activity.push(response.data[i]);
+						console.log(this.activity)
+						}				
+					}		
 				}).catch(error => {
 					console.log(error)
 				})
