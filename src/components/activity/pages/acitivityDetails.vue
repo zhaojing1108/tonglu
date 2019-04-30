@@ -1,24 +1,30 @@
 <template>
 	<div>
 		<div id="newsDetails" >
-		<div>
-			<h4>{{this.$route.query.title}}</h4>
-			<p v-html="this.$route.query.content">>{{this.$route.query.content}}</p>
+			<div>
+				<h4>{{this.$route.query.title}}</h4>
+				<span>发布日期：{{this.$route.query.createTime | formatDate}}</span>
+				<p v-html="this.$route.query.content">>{{this.$route.query.content}}</p>
+			</div>
 		</div>
-	</div>
-</div>
-	
+	</div>	
 </template>
 <script>
 	import api from '@/assets/js/api'
+	import {formatDate} from './../../../assets/js/date.js' //在组件中引用date.js
 	export default {
 		name: 'NewsDetails',
 		data(){
 			return{
 				activity:{},
-
 			}
-		}
+		},
+		filters: {
+			formatDate(time) {
+					var date = new Date(time);
+					return formatDate(date, 'yyyy.MM.dd');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
+			},
+    	}	
 	}
 </script>
 
@@ -27,6 +33,13 @@
 		padding-top: 20px;
 		font-weight: bold;
 		text-align: center;
+	}
+	#newsDetails span{
+		display: block;
+		text-align: center;
+		margin-top: 20px;
+		font-size: 12px;
+		color: #a5a5a5;
 	}
 	#newsDetails p{
 		color: #737171;

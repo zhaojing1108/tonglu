@@ -1,11 +1,18 @@
 <template>
 	<div>
 		<div class="news_content">
- 			<ul class="newslist" >
- 					<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:15px;border-bottom:1px solid #ebebeb;">
- 					<img :src="item.img"/>
- 					<h4 @click="change(item.title,item.content)">{{item.title}}</h4>
-					<p>{{item.description}}</p>
+ 			<ul class="newslist" >				
+				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:15px;border-bottom:1px solid #ebebeb;">
+					<el-row style="width:1017px">
+						<el-col :span="4"><img :src="item.imgUrl"/></el-col>
+						<el-col :span="20">
+							<el-row>
+								<el-col :span="14"><h4 @click="change(item.title,item.content,item.createTime)">{{item.title}}</h4></el-col>
+								<el-col :span="10"><span class="date">{{item.createTime | formatDate }}</span></el-col>									
+							</el-row>
+							<p>{{item.description}}</p>
+						</el-col>
+					</el-row>
  				</li>
  			</ul>
  			<div class="newsw">
@@ -16,6 +23,7 @@
 </template>
 <script>
 import api from '@/assets/js/api'
+import {formatDate} from './../../../assets/js/date.js' //在组件中引用date.js
 	export default {
 		name: 'News',
 		data(){
@@ -28,8 +36,8 @@ import api from '@/assets/js/api'
 			this.getActivity()
 		},
 		methods:{
-			change(title,content){
-				this.$router.push({name:"acitivityDetails" ,query:{title:title,content:content}})
+			change(title,content,createTime){
+				this.$router.push({name:"acitivityDetails" ,query:{title:title,content:content,createTime:createTime}})
 			},
 			getActivity(){
 				this.axios.get(api.activityUrl).then(response => {							
@@ -44,7 +52,13 @@ import api from '@/assets/js/api'
 					console.log(error)
 				})
 			},
-		}	
+		},
+		filters: {
+			formatDate(time) {
+					var date = new Date(time);
+					return formatDate(date, 'yyyy年MM月dd日');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
+			},
+    	}	
 	}
 </script>
 
@@ -58,7 +72,6 @@ import api from '@/assets/js/api'
 	height: 120px;
 	margin-bottom: 10px;
 	padding: 0;
-	position: relative;
 	line-height: 25px;
 	cursor: pointer;
 }
@@ -66,19 +79,22 @@ import api from '@/assets/js/api'
 	padding-left: 0;
 	height: 120px;
 	width: 150px;
-	float: left;
 	padding-right: 30px;
 }
 .news_content li h4{
-	padding: 20px 0 7px 0;
 	cursor: pointer;
 	color: #45a2cc;
+}
+.news_content .date{
+	font-size: 12px;
+	color: #777;
 }
 .news_content li h4:hover{
 	color: #409eff;
 }
 .news_content li p{
 	color: #777777;
-	}
+	word-wrap: break-word;
+}
 </style>
 

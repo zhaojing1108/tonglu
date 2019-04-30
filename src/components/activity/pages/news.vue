@@ -1,11 +1,18 @@
 <template>
 	<div>
 		<div class="news_content">
- 			<ul class="newslist" >
- 				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:15px;border-bottom:1px solid #ebebeb;">
- 					<img :src="item.imgUrl"/>
- 					<div @click="change(item.title,item.content)" class="newstitle">{{item.title}}</div>
-					<div class="newsdescp">{{item.description}}</div>
+ 			<ul class="newslist" >				
+				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:15px;border-bottom:1px solid #ebebeb;">
+					<el-row style="width:1017px">
+						<el-col :span="4"><img :src="item.imgUrl"/></el-col>
+						<el-col :span="20">
+							<el-row>
+								<el-col :span="14"><h4 @click="change(item.title,item.content)">{{item.title}}</h4></el-col>
+								<el-col :span="10"><span class="date">{{item.createTime | formatDate }}</span></el-col>									
+							</el-row>
+							<p>{{item.description}}</p>
+						</el-col>
+					</el-row>
  				</li>
  			</ul>
  			<div class="newsw">
@@ -13,7 +20,6 @@
 			</div>
 		</div>
 	</div>
-	
 </template>
 <script>
 import api from '@/assets/js/api'

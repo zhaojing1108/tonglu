@@ -10,9 +10,8 @@
 						<el-breadcrumb-item  ><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
 					</el-breadcrumb>
 				</div>
-
-				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" v-if="navdisplay">
-					<el-menu-item index="news">
+				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" v-show="navdisplay" v-if="$route.name !== 'acitivityDetails'">
+					<el-menu-item index="news" >
 						<el-button type="primary" slot="title" >景区新闻</el-button>
 					</el-menu-item>
 					<el-menu-item index="acitivity" >
@@ -58,7 +57,7 @@
 				var href=window.location.href
 				href=href.substring(href.lastIndexOf("/")+1,href.length);
 				_this.navIndex=href
-				//console.log(href);
+				console.log(href);
 			}	
 		},
 		mounted(){
@@ -66,12 +65,15 @@
 			var href=window.location.href
 			href=href.substring(href.lastIndexOf("/")+1,href.length);
 			_this.navIndex=href
-			//console.log(href);
+			console.log(href);
 		}
 	}
 </script>
 
 <style scoped>
+	.news{
+		margin-top: 50px;
+	}
 	.banner{
 		width:100%;
 		height: 350px !important;
