@@ -3,7 +3,7 @@
 		<div class="news_content">
  			<ul class="newslist" >
  					<li v-for="item of activity" :key="item.id" >
- 					<img :src="item.img"/>
+ 					<img :src="item.imgUrl"/>
  					<h4 @click="change(item.title,item.content)">{{item.title}}</h4>
 					<p>{{item.description}}</p>
  				</li>

@@ -41,40 +41,40 @@
 	    watch:{
 		  '$route':'getPath'
 		},
-	     methods:{
-	      handleSelect(key, keyPath){
-	        switch(key){
-	          case 'companypro':
-	            this.$router.push('/pages/companypro');
-	            this.breadcrumbItems  = ['公司简介']
-	            break;
-	          case 'recruit':
-	            this.$router.push('/pages/recruit');
-	            this.breadcrumbItems  = ['人才招聘']
-	            break;
-	          case 'cooperate':
-	            this.$router.push('/pages/cooperate');
-	            this.breadcrumbItems  = ['广告合作']
-	            break;
-	        }
-	      },
-	      //监听路由
-	      getPath(){
-		    var _this=this
-		 	var href=window.location.href
-		 	href=href.substring(href.lastIndexOf("/")+1,href.length);
-		 	_this.navIndex=href
-		 	console.log(href);
-		  }
-	    },
-	    //监听路由
-	    mounted(){
+		methods:{
+			handleSelect(key, keyPath){
+				switch(key){
+					case 'companypro':
+						this.$router.push('/pages/companypro');
+						this.breadcrumbItems  = ['公司简介']
+						break;
+					case 'recruit':
+						this.$router.push('/pages/recruit');
+						this.breadcrumbItems  = ['人才招聘']
+						break;
+					case 'cooperate':
+						this.$router.push('/pages/cooperate');
+						this.breadcrumbItems  = ['广告合作']
+						break;
+				}
+			},
+	  	//监听路由
+			getPath(){
+				var _this=this
+				var href=window.location.href
+				href=href.substring(href.lastIndexOf("/")+1,href.length);
+				_this.navIndex=href
+				// console.log(href);
+			}
+	  },
+	  //监听路由
+		mounted(){
 			var _this=this
-		 	var href=window.location.href
-		 	href=href.substring(href.lastIndexOf("/")+1,href.length);
-		 	_this.navIndex=href
-		 	console.log(href);
-		 }
+			var href=window.location.href
+			href=href.substring(href.lastIndexOf("/")+1,href.length);
+			_this.navIndex=href
+			// console.log(href);
+		}
 	}
 </script>
 

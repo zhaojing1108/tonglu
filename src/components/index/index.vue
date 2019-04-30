@@ -53,9 +53,9 @@
 				<el-row style="padding-top: 20px; height:250px; overflow:hidden">
 				  	<el-col :span="10" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
 				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;">
-			    			<el-tab-pane label="热门活动"><img :src="activity.imgUrl" alt=""></el-tab-pane>
-			    			<el-tab-pane label="景区新闻"><img :src="activity.imgUrl" alt=""></el-tab-pane>
-			    			<el-tab-pane label="旅游新闻"><img :src="activity.imgUrl" alt=""></el-tab-pane>
+			    			<el-tab-pane label="热门活动"><img src="./../../assets/img/expand_hong.jpg"></el-tab-pane>
+			    			<el-tab-pane label="景区新闻"><img src="./../../assets/img/expand_img03.jpg"></el-tab-pane>
+			    			<el-tab-pane label="旅游新闻"><img src="./../../assets/img/expand_img01.jpg"></el-tab-pane>
 			  			</el-tabs>
 				  	</div></el-col>
 
