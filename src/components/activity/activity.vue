@@ -1,9 +1,9 @@
 <template>
 	<el-container class="bgcolor">
 	  <el-header class="banner"></el-header>
-	  	<div class="container childpage">
+	  	<div class="container childpage" style="margin-bottom:30px">
 		 	<el-card shadow="always" class="container">
-				<div class="righttitle_r">
+				<div class="righttitle_r" style="padding-bottom:10px;border-bottom:1px solid #e8e8e8">
 					<el-breadcrumb separator="/">
 						<el-breadcrumb-item :to="{ path: '>' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
 						<el-breadcrumb-item ><span>活动咨询</span></el-breadcrumb-item>
@@ -11,7 +11,7 @@
 					</el-breadcrumb>
 				</div>
 
-				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" >
+				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" v-if="navdisplay">
 					<el-menu-item index="news">
 						<el-button type="primary" slot="title" >景区新闻</el-button>
 					</el-menu-item>
@@ -34,7 +34,8 @@
 		data(){
 			return{
 				breadcrumbItems: '景区新闻',
-	        	navIndex:'news'
+				navIndex:'news',
+				navdisplay:true
 			}
 		},
 		methods:{
@@ -43,15 +44,30 @@
 	        	switch(key){
 	          		case 'news':
 	            	this.$router.push('/pages/news');
-		            this.breadcrumbItems  = '景区新闻'
+					this.breadcrumbItems  = '景区新闻'
 		            break;
 		            case 'acitivity':
 	            	this.$router.push('/pages/hotactivity');
-		            this.breadcrumbItems = '热门活动'
+					this.breadcrumbItems = '热门活动'
 		            break;		          	
 	        	}
 			  },
+			 //监听路由
+	      	getPath(){
+				var _this=this
+				var href=window.location.href
+				href=href.substring(href.lastIndexOf("/")+1,href.length);
+				_this.navIndex=href
+				//console.log(href);
+			}	
 		},
+		mounted(){
+			var _this=this
+			var href=window.location.href
+			href=href.substring(href.lastIndexOf("/")+1,href.length);
+			_this.navIndex=href
+			//console.log(href);
+		}
 	}
 </script>
 
@@ -121,5 +137,8 @@
 	}
 	.activity_nav >>> .el-menu-item{
 		padding: 0 5px;
+	}
+	img{
+		max-width: 800px !important;
 	}
 </style>

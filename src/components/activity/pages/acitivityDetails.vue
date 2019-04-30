@@ -2,8 +2,8 @@
 	<div>
 		<div id="newsDetails" >
 		<div>
-			<h4>{{this.$route.params.title}}</h4>
-			<p v-html="this.$route.params.content">>{{this.$route.params.content}}</p>
+			<h4>{{this.$route.query.title}}</h4>
+			<p v-html="this.$route.query.content">>{{this.$route.query.content}}</p>
 		</div>
 	</div>
 </div>
@@ -15,9 +15,10 @@
 		name: 'NewsDetails',
 		data(){
 			return{
-				activity:{}
+				activity:{},
+
 			}
-		},
+		}
 	}
 </script>
 
@@ -48,4 +49,5 @@
 	.news_content .row a:hover{
 		color: #38a1d1;
 	}
+	
 </style>

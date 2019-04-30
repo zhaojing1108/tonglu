@@ -2,8 +2,9 @@
 	<div>
 		<div id="newsDetails" >
 		<div>
-			<h4>{{this.$route.params.title}}</h4>
-			<p v-html="this.$route.params.content">>{{this.$route.params.content}}</p>
+			<!-- <h4>{{this.$route.query.title}}</h4> -->
+			<h4>{{this.thistitle}}</h4>
+			<p v-html="this.$route.query.content">>{{this.$route.query.content}}</p>
 		</div>
 	</div>
 </div>
@@ -15,9 +16,21 @@
 		name: 'NewsDetails',
 		data(){
 			return{
-				activity:{}
+				activity:{},
+				thistitle:''
 			}
 		},
+		created (){
+			this.thistitle=this.$route.query.title
+			console.log(this.thistitle)
+		},
+		watch:{
+				
+		},
+		methods:{
+	       
+		},
+	
 	}
 </script>
 
@@ -48,4 +61,5 @@
 	.news_content .row a:hover{
 		color: #38a1d1;
 	}
+	
 </style>

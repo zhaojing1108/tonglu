@@ -83,16 +83,20 @@
 		</el-row>
 		<!-- 广告位 -->
 		<div class="middle_banner">
-				<el-row :gutter="20">
-					<el-col :span="14"><div class="grid-content bg-purple">
-						<li>
-							<h3>{{adver.title}}</h3>
-						</li>
-						<li>							
-							<p>{{adver.content}}</p>
-						</li>
-					</div></el-col>
-					<el-col :span="10"><div class="grid-content bg-purple click"><p @click="goAd(activity[0].title,activity[0].content)">点击了解详情</p></div></el-col>
+				<el-row :gutter="20" style="padding:0 !important">
+					<el-col :span="18" style="height:100%">
+						<div style="width:90%;height:40px;margin-top:45px;font-size:18px;line-height:40px;padding-left:10%">{{adver.title}}</div>
+						<div style="width:90%;height:57px;padding-left:10%;overflow:hidden">{{adver.content}}</div>
+						<!-- <div class="grid-content bg-purple" style="height:100%">
+							<li>
+								<h3>{{adver.title}}</h3>
+							</li>
+							<li>							
+								<p>{{adver.content}}</p>
+							</li>
+						</div> -->
+					</el-col>
+					<el-col :span="6"><div class="grid-content bg-purple click"><p @click="goAd(activity[0].title,activity[0].content)">点击了解详情</p></div></el-col>
 				</el-row>
 		</div>
 		<!-- 景点介绍 -->
@@ -363,7 +367,7 @@ export default {
 		margin: 25px;
 	}
 	.middle_banner .el-row p{
-		line-height: 25px;
+		line-height: 30px;
 	}
 	.middle_banner .el-row .click{
 		color: #fff;
