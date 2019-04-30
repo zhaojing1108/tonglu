@@ -11,7 +11,7 @@
 </template>
 <script>
 	import api from '@/assets/js/api'
-		import {formatDate} from './../../../assets/js/date.js' //在组件中引用date.js
+	import {formatDate} from './../../../assets/js/date.js' //在组件中引用date.js
 	export default {
 		name: 'NewsDetails',
 		data(){
@@ -21,19 +21,26 @@
 		},
 		filters: {
 			formatDate(time) {
-					var date = new Date(time);
-					return formatDate(date, 'yyyy.MM.dd');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
+				var date = new Date(time);
+				return formatDate(date, 'yyyy.MM.dd');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
 			},
-    	}	
-	
+    	}		
 	}
 </script>
 
-<style scoped>
+<style >
 	#newsDetails h4{
 		padding-top: 20px;
+		margin-top: 50px;
 		font-weight: bold;
 		text-align: center;
+	}
+	#newsDetails span{
+		display: block;
+		text-align: center;
+		margin-top: 20px;
+		color: #a5a5a5;
+		font-size: 12px;
 	}
 	#newsDetails p{
 		color: #737171;

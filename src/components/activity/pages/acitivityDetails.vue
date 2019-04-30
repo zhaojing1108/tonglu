@@ -21,31 +21,32 @@
 		},
 		filters: {
 			formatDate(time) {
-					var date = new Date(time);
-					return formatDate(date, 'yyyy.MM.dd');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
+				var date = new Date(time);
+				return formatDate(date, 'yyyy.MM.dd');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
 			},
     	}	
 	}
 </script>
 
-<style scoped>
+<style >
 	#newsDetails h4{
 		padding-top: 20px;
+		margin-top: 50px;
 		font-weight: bold;
 		text-align: center;
-	}
-	#newsDetails span{
-		display: block;
-		text-align: center;
-		margin-top: 20px;
-		font-size: 12px;
-		color: #a5a5a5;
 	}
 	#newsDetails p{
 		color: #737171;
 		line-height: 25px;
 		padding: 30px;
 		text-align: center;
+	}
+		#newsDetails span{
+		display: block;
+		text-align: center;
+		margin-top: 20px;
+		color: #a5a5a5;
+		font-size: 12px;
 	}
 	#newsDetails img{
 		display: block;
