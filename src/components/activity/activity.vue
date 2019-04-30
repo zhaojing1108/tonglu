@@ -1,22 +1,22 @@
 <template>
-	<el-container class="bgcolor">
+	<el-container class="bgcolor"  @showCityName="updateCity">
 	  <el-header class="banner"></el-header>
 	  	<div class="container childpage" style="margin-bottom:30px">
 		 	<el-card shadow="always" class="container">
 				<div class="righttitle_r" style="padding-bottom:10px;border-bottom:1px solid #e8e8e8">
 					<el-breadcrumb separator="/">
-						<el-breadcrumb-item :to="{ path: '>' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
-						<el-breadcrumb-item ><span>活动咨询</span></el-breadcrumb-item>
-						<el-breadcrumb-item  ><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
+						<el-breadcrumb-item><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
+						<el-breadcrumb-item><span>活动咨询</span></el-breadcrumb-item>
+						<el-breadcrumb-item><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
 					</el-breadcrumb>
 				</div>
 
-				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" v-if="navdisplay">
+				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex">
 					<el-menu-item index="news">
-						<el-button type="primary" slot="title" >景区新闻</el-button>
+						<el-button slot="title" style="backgrounf:#35abd9;border-radius:0;color:#fff;margin:25px 0">景区新闻</el-button>
 					</el-menu-item>
-					<el-menu-item index="acitivity" >
-					    <el-button  type="primary" slot="title" >热门活动</el-button>
+					<el-menu-item index="acitivity">
+					    <el-button  slot="title" style="backgrounf:#35abd9;border-radius:0;color:#fff;margin:25px 0">热门活动</el-button>
 					</el-menu-item>
 				</el-menu>
 				<div class="news">
@@ -35,7 +35,6 @@
 			return{
 				breadcrumbItems: '景区新闻',
 				navIndex:'news',
-				navdisplay:true
 			}
 		},
 		methods:{
@@ -59,7 +58,12 @@
 				href=href.substring(href.lastIndexOf("/")+1,href.length);
 				_this.navIndex=href
 				//console.log(href);
-			}	
+			},
+			updateCity(data){//触发子组件城市选择-选择城市的事件
+				//this.toCity = data.cityname;//改变了父组件的值
+				console.log(data)
+			}
+	
 		},
 		mounted(){
 			var _this=this

@@ -27,11 +27,9 @@
 
 		<!-- 侧边固定 -->
 		<div class="sidebar1">
-			<ul><li><span>0571-1234567</span></li></ul>
-			<ul><li><span>0571-1234567</span></li></ul>
+			<ul><li><span>0571-69870018</span></li></ul>
+			<ul><li><span>XXXXXXX</span></li></ul>
 			<ul><li class="wx"></li></ul>
-			<ul><li><span>0571-1234567</span>	</li></ul>
-			<ul><li><span>0571-1234567</span>	</li></ul>
 			<ul><li><span>0571-1234567</span>	</li></ul>
 			<ul><li><span>0571-1234567</span>	</li></ul>
 		</div>
@@ -40,8 +38,6 @@
 			<ul><li><span class="iconfont">&#xe634;</span></li></ul>
 			<ul><li><span class="iconfont">&#xe617;</span></li></ul>
 			<ul><li><span class="iconfont">&#xe635;</span></li></ul>
-			<ul><li><span class="iconfont">&#xe61e;</span></li></ul>
-			<ul><li><span class="iconfont">&#xf0179;</span></li></ul>
 			<ul><li><span class="iconfont">&#xe61a;</span></li></ul>
 		</div>
 
@@ -212,10 +208,10 @@ export default {
 			}
 		},
 		goActivity(title,content){
-			this.$router.push({name:"newsDetails" ,params:{title:title,content:content}})
+			this.$router.push({name:"newsDetails" ,query:{title:title,content:content}})
 		},
 		goAd(title,content){
-			this.$router.push({name:"acitivityDetails" ,params:{title:title,content:content}})
+			this.$router.push({name:"acitivityDetails" ,query:{title:title,content:content}})
 		},
 		lookActivity(){
 			this.$router.push({path:'/pages/news',params:{id:this.id}})
@@ -463,7 +459,7 @@ export default {
 /* 侧边固定栏 */
 	.sidebar1,.sidebar2{
 		width: 50px;
-	    height: 357px;
+	    height: 254px;
 	    position: fixed;
 	    top: 33%;
 	    right: 0;	    
