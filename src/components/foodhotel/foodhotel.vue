@@ -34,8 +34,8 @@
 	        breadcrumbItems: ['桐庐美食'],
 	        navIndex:'food'
 	      }
-	    },
-	    watch:{
+	  },
+	  watch:{
 		  '$route':'getPath'
 		},
 	    methods:{

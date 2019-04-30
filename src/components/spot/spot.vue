@@ -95,7 +95,6 @@
 				this.spotnav=this.spotname[0].name
 				this.transport=this.spotname[0].transportation
 				this.spotImgs=this.spotname[0].images
-				
 			}
 		},
 		mounted () {
