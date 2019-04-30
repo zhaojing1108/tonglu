@@ -102,7 +102,7 @@
 		    },
 		    methods: {
 		      handleSelect(key, keyPath) {
-						console.log(key);
+						//console.log(key);
 		      }
 				},
 				//路由导航监听
