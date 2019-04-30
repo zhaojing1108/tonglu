@@ -49,5 +49,5 @@
 	.news_content .row a:hover{
 		color: #38a1d1;
 	}
-	
+
 </style>

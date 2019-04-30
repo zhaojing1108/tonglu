@@ -4,7 +4,7 @@
 		<div>
 			<!-- <h4>{{this.$route.query.title}}</h4> -->
 			<h4>{{this.thistitle}}</h4>
-			<p v-html="this.$route.query.content">>{{this.$route.query.content}}</p>
+			<p v-html="this.$route.query.content">{{this.$route.query.content}}</p>
 		</div>
 	</div>
 </div>
@@ -34,9 +34,10 @@
 	}
 </script>
 
-<style scoped>
+<style >
 	#newsDetails h4{
 		padding-top: 20px;
+		margin-top: 50px;
 		font-weight: bold;
 		text-align: center;
 	}
