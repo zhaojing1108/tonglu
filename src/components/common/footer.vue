@@ -1,23 +1,21 @@
 <template>
 	<div id="myFooter" class="myFooter">
-		<footer class="container">
+		<footer class="container" style="height:170px">
 			<el-row  class="footer_wrap">
 			  <el-col :span="8"><div class="grid-content bg-purple" style="width: 100%;">
-			  	<p><span>网络地图</span><span>|</span><span>免责声明</span><span>|</span><span>隐私声明</span><span>|</span><span>投诉建议</span></p>
 					<p>Copyright @ 2018 浙江富春江旅游股份有限公司</p>
 					<p>浙CP备10006740号-1</p>
 			  </div></el-col>
 			  <el-col :span="8"><div class="grid-content bg-purple">
 			  	<p class="contact">与我们联系</p>
-					<i class="el-icon-phone"><span style="margin-left: 5px;">0571-85198075</span></i>
-					<i class="el-icon-mobile-phone"><span style="margin-left: 5px;">0571-85198075</span></i>
+					<i class="el-icon-phone"><span style="margin-left: 5px;">0571-69870018</span></i>
+					<i class="el-icon-mobile-phone"><span style="margin-left: 5px;">0571-69870017</span></i>
 			  </div></el-col>
 			  <el-col :span="8"><div class="grid-content bg-purple">
 			  	<p class="contact">关注更多精彩</p>
-					<span>公司简介</span>
-					<span>人才招聘</span>
-					<span>在线调查</span>
-					<span>广告合作</span>
+					<router-link to="/pages/companypro" style="color:#fff"><span>公司简介</span></router-link>
+					<router-link to="/pages/recruit" style="color:#fff"><span>人才招聘</span></router-link>
+					<router-link to="/pages/cooperate" style="color:#fff"><span>广告合作</span></router-link>
 			  </div></el-col>
 			</el-row>
 			

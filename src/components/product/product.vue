@@ -44,15 +44,15 @@
 		methods:{
 		handleSelect(key, keyPath){
 			switch(key){
-				case '1':
+				case 'baseshow':
 					this.$router.push('/pages/baseshow');
 					this.breadcrumbItems  = ['基地展示']
 					break;
-				case '2':
+				case 'stupractice':
 					this.$router.push('/pages/stupractice');
 					this.breadcrumbItems  = ['学生实践']
 					break;
-				case '3':
+				case 'expand':
 					this.$router.push('/pages/expand');
 					this.breadcrumbItems  = ['拓展产品']
 					break;
@@ -64,9 +64,16 @@
 			href = href.substring(href.lastIndexOf('/')+1,href.length);
 			_this.navIndex = href	
 			console.log(href);
+		},
+	},
+	//监听路由
+		mounted(){
+			var _this=this
+			var href=window.location.href
+			href=href.substring(href.lastIndexOf("/")+1,href.length);
+			_this.navIndex=href
+			console.log(href);
 		}
-
-	}
 	}
 </script>
 

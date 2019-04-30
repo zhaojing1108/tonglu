@@ -2,10 +2,10 @@
 	<div>
 		<div class="news_content">
  			<ul class="newslist" >
- 					<li v-for="item of activity" :key="item.id" >
+ 				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:15px;border-bottom:1px solid #ebebeb;">
  					<img :src="item.imgUrl"/>
- 					<h4 @click="change(item.title,item.content)">{{item.title}}</h4>
-					<p>{{item.description}}</p>
+ 					<div @click="change(item.title,item.content)" class="newstitle">{{item.title}}</div>
+					<div class="newsdescp">{{item.description}}</div>
  				</li>
  			</ul>
  			<div class="newsw">
@@ -30,15 +30,13 @@ import api from '@/assets/js/api'
 		},
 		methods:{
 			change(title,content){
-				this.$router.push({name:"newsDetails" ,params:{title:title,content:content}})
+				this.$router.push({name:"newsDetails" ,query:{title:title,content:content}})
 			},
 			getActivity(){
 				this.axios.get(api.activityUrl).then(response => {
 					for(let i = 0; i<response.data.length;i++){					
 						if(response.data[i].category == 2){
-						console.log(response.data[i])
-						this.activity.push(response.data[i]);
-						console.log(this.activity)
+							this.activity.push(response.data[i])
 						}				
 					}		
 				}).catch(error => {
@@ -56,15 +54,16 @@ import api from '@/assets/js/api'
 	margin: 0 auto;
 }
 .news_content li{
-	height: 150px;
+	height: 120px;
 	margin-bottom: 10px;
 	padding: 0;
 	position: relative;
 	line-height: 25px;
+	cursor: pointer
 }
 .news_content li img{
 	padding-left: 0;
-	height: 150px;
+	height: 120px;
 	width: 150px;
 	float: left;
 	padding-right: 30px;
@@ -80,5 +79,27 @@ import api from '@/assets/js/api'
 .news_content li p{
 	color: #777777;
 	}
+.newstitle{
+  width:75%;
+  height:40px;
+  font-size:16px;
+  line-height:45px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: #409eff;
+}
+.newsdescp{
+  width:80%;
+  height:70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+}
 </style>
 
