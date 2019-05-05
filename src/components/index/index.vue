@@ -48,29 +48,66 @@
 				<img class="middle_content_nav" src="./../../assets/img/index_activity.png" alt="">
 				<el-row style="padding-top: 20px; height:250px; overflow:hidden">
 				  	<el-col :span="10" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
-				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;">
-			    			<el-tab-pane label="热门活动"><img :src="activity.imgUrl" alt=""></el-tab-pane>
-			    			<el-tab-pane label="景区新闻"><img :src="activity.imgUrl" alt=""></el-tab-pane>
-			    			<el-tab-pane label="旅游新闻"><img :src="activity.imgUrl" alt=""></el-tab-pane>
+				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;" @tab-click="handleClick">
+			    			<el-tab-pane label="热门活动"><img :src="rmhdimgUrl" alt="" style="width:95%;height:100%"></el-tab-pane>
+			    			<el-tab-pane label="景区新闻"><img :src="jqxwimgUrl" alt="" style="width:95%;height:100%"></el-tab-pane>
+			    			<el-tab-pane label="旅游新闻"><img :src="lyxwimgUrl" alt="" style="width:95%;height:100%"></el-tab-pane>
 			  			</el-tabs>
 				  	</div></el-col>
-
-				  	<el-col :span="1" style="position: relative ">
-				  		<ul class="newsDate" >
-			 				<li v-for="item of activity" :key="item.id" > 
-			 					<p style="padding-top: 15px;font-size: 16px;">{{item.createTime | formatDate }}</p>
-			 					<p style="font-size: 12px;">{{item.createTime | formatDateTwo}}</p>
-			 				</li>
-			 			</ul>
-				  	</el-col>
-				  	<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
-				  		<ul class="newsText">
-			 				<li  v-for="item of activity" :key="item.id" @click="goActivity(item.title,item.content)">
-			 					<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
-			 					<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
-			 				</li>
-			 			</ul>							
-				  	</div></el-col>
+					<div v-if="tabType == 0">
+						<el-col :span="1" style="position: relative ">
+							<ul class="newsDate" >
+								<li v-for="item of rmhdArray" :key="item.id" > 
+									<p style="padding-top: 15px;font-size: 16px;">{{item.createTime | formatDate }}</p>
+									<p style="font-size: 12px;">{{item.createTime | formatDateTwo}}</p>
+								</li>
+							</ul>
+						</el-col>
+						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
+							<ul class="newsText">
+								<li  v-for="item of rmhdArray" :key="item.id" @click="goActivity(item.title,item.content)">
+									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
+									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
+								</li>
+							</ul>							
+						</div></el-col>
+					</div>
+					<div v-if="tabType == 1">
+						<el-col :span="1" style="position: relative ">
+							<ul class="newsDate" >
+								<li v-for="item of jqxwArray" :key="item.id" > 
+									<p style="padding-top: 15px;font-size: 16px;">{{item.createTime | formatDate }}</p>
+									<p style="font-size: 12px;">{{item.createTime | formatDateTwo}}</p>
+								</li>
+							</ul>
+						</el-col>
+						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
+							<ul class="newsText">
+								<li  v-for="item of jqxwArray" :key="item.id" @click="goActivity(item.title,item.content)">
+									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
+									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
+								</li>
+							</ul>							
+						</div></el-col>
+					</div>
+					<div v-if="tabType == 2">
+						<el-col :span="1" style="position: relative ">
+							<ul class="newsDate" >
+								<li v-for="item of lyxwArray" :key="item.id" > 
+									<p style="padding-top: 15px;font-size: 16px;">{{item.createTime | formatDate }}</p>
+									<p style="font-size: 12px;">{{item.createTime | formatDateTwo}}</p>
+								</li>
+							</ul>
+						</el-col>
+						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
+							<ul class="newsText">
+								<li  v-for="item of lyxwArray" :key="item.id" @click="goActivity(item.title,item.content)">
+									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
+									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
+								</li>
+							</ul>							
+						</div></el-col>
+					</div>
 				</el-row>
 				
 				<div class="look" @click="lookActivity()">查看更多</div>
@@ -115,7 +152,7 @@
 			<img src="./../../assets/img/index_map.png" alt="">
 			<div class="container" style="position: absolute;top: 0;left: 50%;margin-left: -550px;"><div class="fooot_ewm ">
 				<p>玩乐桐庐</p>
-				<img src="../../assets/img/index_ewm.png" style="width: 115px;height: 115px;margin: 10px auto 0;"></img>
+				<img src="../../assets/img/index_ewm.png" style="width: 115px;height: 115px;margin: 10px auto 0;" />
 			</div></div>
 		</div>
 		
@@ -139,7 +176,14 @@ export default {
             activity:{},
 			adver:{},
 			title:{},
-			navIndex:"spot"
+			navIndex:"spot",
+			tabType: 0,
+			jqxwArray:{},
+			rmhdArray:{},
+			lyxwArray:{},
+			rmhdimgUrl:'',
+			jqxwimgUrl:'',
+			lyxwimgUrl:''
 		}
 	},
 	created () {
@@ -180,12 +224,35 @@ export default {
 		},		
 	   	getActivity(){
 	   		this.axios.get(api.activityUrl).then(response => {
-	   			this.activity = response.data;
+				this.activity = response.data
+				var r=0
+				var s=0
+				var t=0
+				for(let i in this.activity){
+					if(this.activity[i].category == 2){
+						this.jqxwArray[r++] = this.activity[i]
+					}
+					if(this.activity[i].category == 1){
+						this.rmhdArray[s++] = this.activity[i]
+					}
+					if(this.activity[i].category == 3){
+						this.lyxwArray[t++] = this.activity[i]
+					
+					}
+				}
+				this.rmhdimgUrl=this.rmhdArray[0].imgUrl
+				this.jqxwimgUrl=this.jqxwArray[0].imgUrl
+				this.lyxwimgUrl=this.lyxwArray[0].imgUrl
 	   			// console.log(response.data.updateTime)
 	   		}).catch(error => {
 	   			console.log(error)
 	   		})
-	   	},
+		   },
+		handleClick(tab, e) {//点击选项卡
+			this.tabType = tab.index;
+			// var _val = tab.index;//
+			// this.getWaterDetails(_val);
+		},
 	   	getAd(){
 	   		this.axios.get(api.adUrl).then(response => {
 	   			this.adver = response.data[0]
@@ -204,6 +271,9 @@ export default {
 			}else if(id==4){
 				this.$router.push({path:'/pages/trafficguide',query:{id:this.id}})
 			}else if(id==5){
+				this.$router.push({path:'/pages/trafficguide',query:{id:this.id}})
+			}
+			else if(id==6){
 				this.$router.push({path:'/pages/dependtravel',query:{id:this.id}})
 			}
 		},
