@@ -37,9 +37,11 @@
 						<el-submenu index="4" class="nav_li" style="float:right">
 							<template slot="title"><router-link to="#">活动资讯</router-link></template>
 							<router-link to="/activity"><el-menu-item index="4-1">景区新闻</el-menu-item></router-link>
-							<router-link to="/pages/hotactivity"><el-menu-item index="4-2">热门活动</el-menu-item></router-link>		
+							<router-link to="/pages/hotactivity"><el-menu-item index="4-2">热门活动</el-menu-item></router-link>
+							<router-link to="/pages/travel"><el-menu-item index="4-3">旅游新闻</el-menu-item></router-link>			
 							<router-link to="/pages/newsDetails" style="display:none"><el-menu-item index="4-3">景区新闻详情</el-menu-item></router-link>	
-							<router-link to="/pages/activityDetails" style="display:none"><el-menu-item index="4-4">热门活动详情</el-menu-item></router-link>						
+							<router-link to="/pages/activityDetails" style="display:none"><el-menu-item index="4-4">热门活动详情</el-menu-item></router-link>	
+							<router-link to="/pages/travelDetails" style="display:none"><el-menu-item index="4-5">旅游新闻详情</el-menu-item></router-link>						
 						</el-submenu> 
 
 						<el-menu-item index="3" class="nav_li" style="float:right">

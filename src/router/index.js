@@ -22,6 +22,8 @@ import hotactivity from '@/components/activity/pages/hotactivity'
 import acitivityDetails from '@/components/activity/pages/acitivityDetails'
 import news from '@/components/activity/pages/news'
 import newsDetails from '@/components/activity/pages/newsDetails'
+import travel from '@/components/activity/pages/travel'
+import travelDetails from '@/components/activity/pages/travelDetails'
 
 // 旅游指南
 import tourist from '@/components/tourist/tourist'
@@ -132,6 +134,16 @@ const routes = [
 				path:'/pages/acitivityDetails',
 				name:'acitivityDetails',
 				component:acitivityDetails
+			},
+			{
+				path:'/pages/travel',
+				name:'travel',
+				component:travel
+			},
+			{
+				path:'/pages/travelDetails',
+				name:'travelDetails',
+				component:travelDetails
 			}
 		]	
 	},

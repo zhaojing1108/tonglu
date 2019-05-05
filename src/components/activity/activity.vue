@@ -18,6 +18,9 @@
 					<el-menu-item index="acitivity">
 					    <el-button  slot="title" style="backgrounf:#35abd9;color:#fff;">热门活动</el-button>
 					</el-menu-item>
+					<el-menu-item index="travel">
+					    <el-button  slot="title" style="backgrounf:#35abd9;color:#fff;">旅游新闻</el-button>
+					</el-menu-item>
 				</el-menu>
 				<div class="news">
 					<router-view></router-view>
@@ -47,7 +50,11 @@
 		            case 'acitivity':
 	            	this.$router.push('/pages/hotactivity');
 					this.breadcrumbItems = '热门活动'
-		            break;		          	
+					break;	
+					case 'travel':
+	            	this.$router.push('/pages/travel');
+					this.breadcrumbItems = '旅游新闻'
+		            break;	          	
 				}
 			  },
 			 //监听路由
@@ -128,7 +135,7 @@
 	}
 	.el-menu.el-menu--horizontal.activity_nav{
 		display: block;
-		width: 280px;
+		width: 500px;
 		margin: 30px auto;
 		text-align: center;
 	}
