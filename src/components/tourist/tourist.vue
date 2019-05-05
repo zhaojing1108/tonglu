@@ -57,16 +57,14 @@
 				var href=window.location.href
 				href=href.substring(href.lastIndexOf("/")+1,href.length);
 				_this.navIndex=href
-				console.log(href);
 			}
 	  },
 	  //监听路由
-	  mounted(){
+	   mounted(){
 			var _this=this
 		 	var href=window.location.href
 		 	href=href.substring(href.lastIndexOf("/")+1,href.length);
 		 	_this.navIndex=href
-		 	console.log(href);
 		 }
 	    
 	}
