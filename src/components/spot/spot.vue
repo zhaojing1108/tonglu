@@ -7,7 +7,7 @@
 		 			<h2>景区推荐</h2>
 		 			<p>RECOMMENDATION</p>
 		 		</div>
-		 		 <el-menu default-active="1" @select="handleSelect">
+		 		 <el-menu default-active="23" @select="handleSelect">
 				      <el-menu-item v-for="item of spotname" :key="item.id" :index="item.id+''">
 				        <span slot="title">{{item.name}}</span>
 				      </el-menu-item>
@@ -71,16 +71,19 @@
 		methods:{
 			handleSelect(key){
 				//获得点击的导航值，并跟换显示的数据
-				var thisname=this.spotname[key-1].name;
-				var thisengname=this.spotname[key-1].enName;
-				var thisspotintro=this.spotname[key-1].description;
-				var thistransport=this.spotname[key-1].transportation;
-				var thisimg=this.spotname[key-1].images;
-				this.nav=thisname;
-				this.spotnav=thisspotintro;
-				this.engnav=thisengname;
-				this.transport=thistransport;
-				this.spotImgs=thisimg;
+				var spotdata= this.spotname.filter(function(item){
+						return item.id == key; 
+				})
+				 var thisname=spotdata[0].name
+				 var thisspotintro=spotdata[0].description
+				 var thistransport=spotdata[0].transportation
+				 var thisimg=spotdata[0].images
+				 var thisengname=spotdata[0].enName
+				 this.nav=thisname;
+				 this.spotnav=thisspotintro;
+				 this.engnav=thisengname;
+				 this.transport=thistransport;
+				 this.spotImgs=thisimg;
 			},
 			getHomeInfo (){
 				axios.get(api.spotUrl)//url api
@@ -88,7 +91,6 @@
 			},
 			getHomeInfoSucc (res) {
 				res=res.data
-				//console.log(res)
 				this.spotname=res
 				this.nav=this.spotname[0].name
 				this.engnav=this.spotname[0].enName

@@ -180,7 +180,7 @@ export default {
 		},		
 	   	getActivity(){
 	   		this.axios.get(api.activityUrl).then(response => {
-	   			this.activity = response.data;
+				   this.activity = response.data;
 	   			// console.log(response.data.updateTime)
 	   		}).catch(error => {
 	   			console.log(error)
@@ -204,6 +204,9 @@ export default {
 			}else if(id==4){
 				this.$router.push({path:'/pages/trafficguide',query:{id:this.id}})
 			}else if(id==5){
+				this.$router.push({path:'/pages/trafficguide',query:{id:this.id}})
+			}
+			else if(id==6){
 				this.$router.push({path:'/pages/dependtravel',query:{id:this.id}})
 			}
 		},
