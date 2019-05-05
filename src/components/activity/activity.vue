@@ -1,5 +1,5 @@
 <template>
-	<el-container class="bgcolor"  @showCityName="updateCity">
+	<el-container class="bgcolor" >
 	  <el-header class="banner"></el-header>
 	  	<div class="container childpage" style="margin-bottom:30px">
 		 	<el-card shadow="always" class="container">
@@ -10,13 +10,13 @@
 						<el-breadcrumb-item><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
 					</el-breadcrumb>
 				</div>
-
-				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex">
-					<el-menu-item index="news">
-						<el-button slot="title" style="backgrounf:#35abd9;border-radius:0;color:#fff;margin:25px 0">景区新闻</el-button>
+				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" 
+				v-if="$route.name !== 'acitivityDetails' && $route.name !== 'newsDetails'">
+					<el-menu-item index="news" >
+						<el-button type="primary" slot="title" >景区新闻</el-button>
 					</el-menu-item>
 					<el-menu-item index="acitivity">
-					    <el-button  slot="title" style="backgrounf:#35abd9;border-radius:0;color:#fff;margin:25px 0">热门活动</el-button>
+					    <el-button  slot="title" style="backgrounf:#35abd9;color:#fff;">热门活动</el-button>
 					</el-menu-item>
 				</el-menu>
 				<div class="news">
@@ -25,8 +25,7 @@
 			</el-card>
 		</div>
 	</el-container>
-	
-	
+		
 </template>
 <script>
 	export default {
@@ -49,7 +48,7 @@
 	            	this.$router.push('/pages/hotactivity');
 					this.breadcrumbItems = '热门活动'
 		            break;		          	
-	        	}
+				}
 			  },
 			 //监听路由
 	      	getPath(){
@@ -59,23 +58,21 @@
 				_this.navIndex=href
 				//console.log(href);
 			},
-			updateCity(data){//触发子组件城市选择-选择城市的事件
-				//this.toCity = data.cityname;//改变了父组件的值
-				console.log(data)
-			}
-	
 		},
 		mounted(){
 			var _this=this
 			var href=window.location.href
 			href=href.substring(href.lastIndexOf("/")+1,href.length);
 			_this.navIndex=href
-			//console.log(href);
-		}
+			console.log(href);
+		},
 	}
 </script>
 
 <style scoped>
+	.news{
+		margin-top: 50px;
+	}
 	.banner{
 		width:100%;
 		height: 350px !important;
