@@ -1,22 +1,25 @@
 <template>
-	<el-container class="bgcolor">
+	<el-container class="bgcolor" >
 	  <el-header class="banner"></el-header>
 	  	<div class="container childpage" style="margin-bottom:30px">
 		 	<el-card shadow="always" class="container">
 				<div class="righttitle_r" style="padding-bottom:10px;border-bottom:1px solid #e8e8e8">
 					<el-breadcrumb separator="/">
-						<el-breadcrumb-item :to="{ path: '>' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
-						<el-breadcrumb-item ><span>活动咨询</span></el-breadcrumb-item>
-						<el-breadcrumb-item  ><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
+						<el-breadcrumb-item><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
+						<el-breadcrumb-item><span>活动咨询</span></el-breadcrumb-item>
+						<el-breadcrumb-item><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
 					</el-breadcrumb>
 				</div>
-
-				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" v-if="navdisplay">
-					<el-menu-item index="news">
+				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" 
+				v-if="$route.name !== 'acitivityDetails' && $route.name !== 'newsDetails'">
+					<el-menu-item index="news" >
 						<el-button type="primary" slot="title" >景区新闻</el-button>
 					</el-menu-item>
-					<el-menu-item index="acitivity" >
-					    <el-button  type="primary" slot="title" >热门活动</el-button>
+					<el-menu-item index="acitivity">
+					    <el-button  slot="title" style="backgrounf:#35abd9;color:#fff;">热门活动</el-button>
+					</el-menu-item>
+					<el-menu-item index="travel">
+					    <el-button  slot="title" style="backgrounf:#35abd9;color:#fff;">旅游新闻</el-button>
 					</el-menu-item>
 				</el-menu>
 				<div class="news">
@@ -25,8 +28,7 @@
 			</el-card>
 		</div>
 	</el-container>
-	
-	
+		
 </template>
 <script>
 	export default {
@@ -35,7 +37,6 @@
 			return{
 				breadcrumbItems: '景区新闻',
 				navIndex:'news',
-				navdisplay:true
 			}
 		},
 		methods:{
@@ -49,8 +50,12 @@
 		            case 'acitivity':
 	            	this.$router.push('/pages/hotactivity');
 					this.breadcrumbItems = '热门活动'
-		            break;		          	
-	        	}
+					break;	
+					case 'travel':
+	            	this.$router.push('/pages/travel');
+					this.breadcrumbItems = '旅游新闻'
+		            break;	          	
+				}
 			  },
 			 //监听路由
 	      	getPath(){
@@ -59,19 +64,22 @@
 				href=href.substring(href.lastIndexOf("/")+1,href.length);
 				_this.navIndex=href
 				//console.log(href);
-			}	
+			},
 		},
 		mounted(){
 			var _this=this
 			var href=window.location.href
 			href=href.substring(href.lastIndexOf("/")+1,href.length);
 			_this.navIndex=href
-			//console.log(href);
-		}
+			console.log(href);
+		},
 	}
 </script>
 
 <style scoped>
+	.news{
+		margin-top: 50px;
+	}
 	.banner{
 		width:100%;
 		height: 350px !important;
@@ -127,7 +135,7 @@
 	}
 	.el-menu.el-menu--horizontal.activity_nav{
 		display: block;
-		width: 280px;
+		width: 500px;
 		margin: 30px auto;
 		text-align: center;
 	}

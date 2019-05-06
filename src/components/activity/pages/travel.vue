@@ -7,7 +7,7 @@
 						<el-col :span="4"><img :src="item.imgUrl"/></el-col>
 						<el-col :span="20">
 							<el-row>
-								<el-col :span="14"><h4 @click="change(item.title,item.content,item.createTime)">{{item.title}}</h4></el-col>
+								<el-col :span="14"><h4 @click="change(item.title,item.content)">{{item.title}}</h4></el-col>
 								<el-col :span="10"><span class="date">{{item.createTime | formatDate }}</span></el-col>									
 							</el-row>
 							<p>{{item.description}}</p>
@@ -36,18 +36,16 @@ import {formatDate} from './../../../assets/js/date.js' //在组件中引用date
 			this.getActivity()
 		},
 		methods:{
-			change(title,content,createTime){
-				this.$router.push({name:"acitivityDetails" ,query:{title:title,content:content,createTime:createTime}})
+			change(title,content){
+				this.$router.push({name:"newsDetails" ,query:{title:title,content:content}})
 			},
 			getActivity(){
-				this.axios.get(api.activityUrl).then(response => {							
+				this.axios.get(api.activityUrl).then(response => {
 					for(let i = 0; i<response.data.length;i++){					
-						if(response.data[i].category == 1){
-						//console.log(response.data[i])
-						this.activity.push(response.data[i]);
-						//console.log(this.activity)
+						if(response.data[i].category == 3){
+							this.activity.push(response.data[i])
 						}				
-					}			
+					}		
 				}).catch(error => {
 					console.log(error)
 				})
@@ -58,7 +56,7 @@ import {formatDate} from './../../../assets/js/date.js' //在组件中引用date
 					var date = new Date(time);
 					return formatDate(date, 'yyyy年MM月dd日');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
 			},
-    	}	
+    	}		
 	}
 </script>
 
@@ -97,4 +95,3 @@ import {formatDate} from './../../../assets/js/date.js' //在组件中引用date
 	word-wrap: break-word;
 }
 </style>
-
