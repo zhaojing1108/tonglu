@@ -115,7 +115,7 @@
 	.banner{
 		width:100%;
 		height: 350px !important;
-		background: url(../../assets/img/spotbanner.jpg);
+		background: url(../../assets/img/spotviewbanner.jpg);
 		background-size: 100% 100%;
 	}
 	.childpage{
