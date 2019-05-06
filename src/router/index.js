@@ -40,8 +40,11 @@ import baseshow from '@/components/product/pages/baseshow'
 import expand from '@/components/product/pages/expand'
 import stupractice from '@/components/product/pages/stupractice'
 
-
 Vue.use(VueRouter)
+//关于图片放大功能
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+Vue.use(preview)
 
 const routes = [
 	// 主页
@@ -106,7 +109,7 @@ const routes = [
     // 景区推荐
     {
     	path: '/spot',
-		component: spot
+			component: spot
     },
     // 活动咨询
 	{

@@ -19,7 +19,7 @@
 		 			<div class="spottitle">{{item.housename}}</div>
 		 			<p>{{item.housemain}}</p>
 		 			<div v-for="item2 of item.images" :key="item2.index">
-		 				<img :src="item2.imageUrl"  class="houseimg" />
+		 				<img :src="item2.imageUrl"  class="houseimg" preview="0"/>
 		 			</div>
 		 			<!--<img src="../../../assets/imgs/houseimg01.jpg" class="houseimg"/>
 		 			<img src="../../../assets/imgs/houseimg02.jpg" class="houseimg"/>

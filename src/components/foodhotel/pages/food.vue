@@ -17,7 +17,7 @@
 	 		<div class="rightmain">
 	 			<ul class="foodlist">
 	 				<li v-for="item of foodlist" :key="item.id">
-	 					<img :src="item.imageUrl" class="foodlistimg"/>
+	 					<img :src="item.imageUrl" class="foodlistimg"  preview="0"/>
 	 					<p>{{item.foodtext}}</p>
 	 				</li>
 	 			</ul>
