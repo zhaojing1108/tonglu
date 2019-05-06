@@ -8,8 +8,8 @@
 	 			</div>
 	 			<div class="righttitle_r">
 	 				<el-breadcrumb separator="/">
-					  <el-breadcrumb-item :to="{ path: '>' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
-					  <el-breadcrumb-item><a href="/">旅游指南</a></el-breadcrumb-item>
+					  <el-breadcrumb-item :to="{ path: '/' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
+					  <el-breadcrumb-item><a>旅游指南</a></el-breadcrumb-item>
 					  <el-breadcrumb-item><span style="color: #35abd9;">自助游攻略</span></el-breadcrumb-item>
 					</el-breadcrumb>
 	 			</div>

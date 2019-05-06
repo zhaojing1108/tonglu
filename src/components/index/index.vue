@@ -27,18 +27,22 @@
 
 		<!-- 侧边固定 -->
 		<div class="sidebar1">
-			<ul><li><span>0571-69870018</span></li></ul>
-			<ul><li><span>XXXXXXX</span></li></ul>
+			<ul><li><span>浙江省杭州市桐庐县</span></li></ul>
+			<ul><li><span>0571-12345</span></li></ul>
 			<ul><li class="wx"></li></ul>
-			<ul><li><span>0571-1234567</span>	</li></ul>
-			<ul><li><span>0571-1234567</span>	</li></ul>
+			<ul><li><span><a href="https://weibo.com/tonglutour">富春江旅游微博</a></span></li></ul>
+			<ul><li><span><a href="#">微信小程序</a></span></li></ul>
+			<ul><li><span><a href="#">抖音小视频</a></span></li></ul>
+			<ul><li><span><a href="https://ylxjjqjt.fliggy.com/">前往购票</a></span></li></ul>
 		</div>
 		<div class="sidebar2">
-			<ul><li><span class="iconfont">&#xe606;</span></li></ul>
-			<ul><li><span class="iconfont">&#xe634;</span></li></ul>
-			<ul><li><span class="iconfont">&#xe617;</span></li></ul>
-			<ul><li><span class="iconfont">&#xe635;</span></li></ul>
-			<ul><li><span class="iconfont">&#xe61a;</span></li></ul>
+			<ul><li><span class="iconfont">&#xe600;</span></li></ul>
+			<ul><li><span class="iconfont">&#xe6c3;</span></li></ul>
+			<ul><li><span class="iconfont">&#xe8c9;</span></li></ul>
+			<ul><li><span class="iconfont">&#xe644;</span></li></ul>
+			<ul><li><span class="iconfont">&#xe628;</span></li></ul>
+			<ul><li><span class="iconfont">&#xe602;</span></li></ul>
+			<ul><li><span class="iconfont">&#xe601;</span></li></ul>
 		</div>
 
 		<!-- middle-content -->
@@ -535,7 +539,6 @@ export default {
 /* 侧边固定栏 */
 	.sidebar1,.sidebar2{
 		width: 50px;
-	    height: 254px;
 	    position: fixed;
 	    top: 33%;
 	    right: 0;	    
@@ -552,7 +555,7 @@ export default {
 	}
 	.sidebar2 li span{
 		color: #ffff;
-		font-size: 2em;
+		font-size: 1.8em;
 		line-height: 50px;
 		padding-left: 10px;
 	}
@@ -575,11 +578,11 @@ export default {
 	.sidebar1 ul li:hover{
 		right: 0px;
 	}
-	.sidebar1 ul li span{
+	.sidebar1 ul li span,.sidebar1 ul li span a{
 		line-height: 50px;
 		color: #fff;
-		font-size: 16px;
-		margin-left: 25px;
+		font-size: 11px;
+		margin-left: 20px;
 	}	
 	.sidebar1 .wx {
 		background: url(../../assets/img/index_wxbg.png);
