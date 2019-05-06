@@ -87,7 +87,7 @@
 	.banner{
 		width:100%;
 		height: 350px !important;
-		background: url(../../assets/img/foodbanner.jpg);
+		background: url(../../assets/img/aboutusbanner.jpg);
 		background-size: 100% 100%;
 	}
 	.childpage{
