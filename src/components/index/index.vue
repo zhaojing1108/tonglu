@@ -43,11 +43,11 @@
 
 		<!-- middle-content -->
 		<el-row class="wrap ">
-			<!-- 活动资讯 -->
+			<!-- 活动咨询 -->
 			<div class="middle_content">
 				<img class="middle_content_nav" src="./../../assets/img/index_activity.png" alt="">
 				<el-row style="padding-top: 20px; height:250px; overflow:hidden">
-				  	<el-col :span="11" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
+				  	<el-col :span="10" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
 				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;" @tab-click="handleClick">
 			    			<el-tab-pane label="热门活动"><img :src="rmhdimgUrl" alt="" style="width:95%;height:100%"></el-tab-pane>
 			    			<el-tab-pane label="景区新闻"><img :src="jqxwimgUrl" alt="" style="width:95%;height:100%"></el-tab-pane>
@@ -596,7 +596,7 @@ export default {
 		height: 100px;
 		right: -50px;
 	}
-/* 地图 */
+/* 地图1 */
 	.foot_map{
 		width: 100%;
 		margin-top: 50px;
