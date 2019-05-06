@@ -4,7 +4,7 @@
 			<div>
 				<h4>{{this.$route.query.title}}</h4>
 				<span>发布日期：{{this.$route.query.createTime | formatDate}}</span>
-				<p v-html="this.$route.query.content">>{{this.$route.query.content}}</p>
+				<p v-html="this.$route.query.content"  style="margin-top:40px">>{{this.$route.query.content}}</p>
 			</div>
 		</div>
 	</div>	
@@ -33,6 +33,7 @@
 		padding-top: 20px;
 		margin-top: 50px;
 		font-weight: bold;
+		font-size: 18px;
 		text-align: center;
 	}
 	#newsDetails span{
@@ -45,8 +46,8 @@
 	#newsDetails p{
 		color: #737171;
 		line-height: 25px;
-		padding: 30px;
 		text-align: center;
+		padding: 0 50px;
 	}
 	#newsDetails img{
 		display: block;

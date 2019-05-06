@@ -89,6 +89,7 @@
 							'news':'4-1',
 							'newsDetails':'4-3',
 							'acitivityDetails':'4-4',
+							'travelDetails':'4-5',
 		        	'food':'5-1',
 		        	'house':'5-2',
 		        	'trafficguide':'6-1',
@@ -105,27 +106,33 @@
 		    methods: {
 		      handleSelect(key, keyPath) {
 						//console.log(key);
-		      }
+					},
+					getPath(){
+						var _this=this
+						var href=window.location.href
+						href=href.substring(href.lastIndexOf("/")+1,href.length)
+						//console.log(href)
+						var fdStart = href.indexOf("newsDetails")
+						var actStart = href.indexOf("acitivityDetails")
+						var travelStart = href.indexOf("travelDetails")
+						if(fdStart == 0 || actStart== 0 || travelStart== 0 ){
+								var pos=href.indexOf("?")
+								href=href.substring(0,pos)
+								_this.activeIndex=_this.navConfig[href]
+								//alert("是以details开头")
+						}else if(fdStart == -1){
+								//alert("不是以details开头")
+								_this.activeIndex=_this.navConfig[href]
+						}
+						//console.log(_this.activeIndex)
+					}
+				},
+				watch: {
+					'$route':'getPath'
 				},
 				//路由导航监听
 		    mounted(){
-					var _this=this
-					var href=window.location.href
-					href=href.substring(href.lastIndexOf("/")+1,href.length)
-					//console.log(href)
-					var fdStart = href.indexOf("newsDetails")
-					var actStart = href.indexOf("acitivityDetails")
-					if(fdStart == 0 || actStart== 0 ){
-							var pos=href.indexOf("?")
-							href=href.substring(0,pos)
-							_this.activeIndex=_this.navConfig[href]
-							//alert("是以details开头")
-					}else if(fdStart == -1){
-							//alert("不是以details开头")
-							_this.activeIndex=_this.navConfig[href]
-					}
-
-					
+					this.getPath()
 			 }
 	}
 </script>

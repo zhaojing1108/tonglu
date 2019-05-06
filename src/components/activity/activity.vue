@@ -5,21 +5,21 @@
 		 	<el-card shadow="always" class="container">
 				<div class="righttitle_r" style="padding-bottom:10px;border-bottom:1px solid #e8e8e8">
 					<el-breadcrumb separator="/">
-						<el-breadcrumb-item><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
-						<el-breadcrumb-item><span>活动咨询</span></el-breadcrumb-item>
+						<el-breadcrumb-item><router-link to="/"><span style="color: #777;font-weight: 300;">首页</span></router-link></el-breadcrumb-item>
+						<el-breadcrumb-item><router-link to="/pages/news"><span>活动资讯</span></router-link></el-breadcrumb-item>
 						<el-breadcrumb-item><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
 					</el-breadcrumb>
 				</div>
 				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" 
-				v-if="$route.name !== 'acitivityDetails' && $route.name !== 'newsDetails'">
-					<el-menu-item index="news" >
-						<el-button type="primary" slot="title" >景区新闻</el-button>
+				v-if="$route.name !== 'acitivityDetails' && $route.name !== 'newsDetails' && $route.name !== 'travelDetails' ">
+					<el-menu-item index="news"  class="activitytabli">
+						景区新闻
 					</el-menu-item>
-					<el-menu-item index="acitivity">
-					    <el-button  slot="title" style="backgrounf:#35abd9;color:#fff;">热门活动</el-button>
+					<el-menu-item index="acitivity" class="activitytabli">
+					    热门活动
 					</el-menu-item>
-					<el-menu-item index="travel">
-					    <el-button  slot="title" style="backgrounf:#35abd9;color:#fff;">旅游新闻</el-button>
+					<el-menu-item index="travel" class="activitytabli">
+					   旅游新闻
 					</el-menu-item>
 				</el-menu>
 				<div class="news">
@@ -57,21 +57,10 @@
 		            break;	          	
 				}
 			  },
-			 //监听路由
-	      	getPath(){
-				var _this=this
-				var href=window.location.href
-				href=href.substring(href.lastIndexOf("/")+1,href.length);
-				_this.navIndex=href
-				//console.log(href);
-			},
+		
 		},
 		mounted(){
-			var _this=this
-			var href=window.location.href
-			href=href.substring(href.lastIndexOf("/")+1,href.length);
-			_this.navIndex=href
-			console.log(href);
+		
 		},
 	}
 </script>
@@ -123,20 +112,13 @@
 	    color: #777777 !important;
 	}
 
-	.el-menu-item  button{
-		width: 130px;
-		background-color: #499bbf;
-		font-size: 16px;
-		border: none;
-		font-family: "Arial"
-	}
 	.el-menu-item  button:hover{
 		background-color: #95c9e0;
 	}
 	.el-menu.el-menu--horizontal.activity_nav{
 		display: block;
-		width: 500px;
-		margin: 30px auto;
+		width: 400px;
+		margin: 70px auto 20px;
 		text-align: center;
 	}
 	.activity_nav >>>.el-menu-item.is-active{
@@ -148,5 +130,19 @@
 	}
 	img{
 		max-width: 800px !important;
+	}
+	.activitytabli{
+		width: 100px;
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+		border-radius: 0;
+		text-align:center;
+		margin-right:20px;
+		color: #595959;
+	}
+	.activity_nav .is-active{
+		background: #499bbf !important;
+		color: #fff !important;
 	}
 </style>
