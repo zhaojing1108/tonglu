@@ -83,7 +83,7 @@
 						</el-col>
 						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 							<ul class="newsText">
-								<li  v-for="item of jqxwArray" :key="item.id" @click="goActivity(item.title,item.content)">
+								<li  v-for="item of jqxwArray" :key="item.id" @click="goNewsdatails(item.title,item.content)">
 									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
 									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
 								</li>
@@ -101,7 +101,7 @@
 						</el-col>
 						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 							<ul class="newsText">
-								<li  v-for="item of lyxwArray" :key="item.id" @click="goActivity(item.title,item.content)">
+								<li  v-for="item of lyxwArray" :key="item.id" @click="gotravelDetails(item.title,item.content)">
 									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
 									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
 								</li>
@@ -278,7 +278,13 @@ export default {
 			}
 		},
 		goActivity(title,content){
+			this.$router.push({name:"acitivityDetails" ,query:{title:title,content:content}})
+		},
+		goNewsdatails(title,content){
 			this.$router.push({name:"newsDetails" ,query:{title:title,content:content}})
+		},
+		gotravelDetails(title,content){
+			this.$router.push({name:"travelDetails" ,query:{title:title,content:content}})
 		},
 		goAd(title,content){
 			this.$router.push({name:"acitivityDetails" ,query:{title:title,content:content}})
@@ -396,10 +402,10 @@ export default {
 		padding-top: 5px;
 	}
 	.index .wrap .middle_content .newsText li{
-		height: 55px;
+		height: 52px;
 		width: 100%;
 		overflow: hidden;
-		margin-bottom: 5px;
+		margin-bottom: 6px;
 	}
 	.index .wrap .middle_content .newsText li p{
 		font-size: 14px;
