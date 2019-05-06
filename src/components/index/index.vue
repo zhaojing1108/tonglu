@@ -383,8 +383,8 @@ export default {
 	}
 	.middle_content .middle_content_nav{
 		display: block;
-		width: 275px;
-		height: 75px;
+		width: 277px;
+		height: 82px;
 		margin: 0px auto;
 	}
 	.index .wrap .middle_content .newsDate{

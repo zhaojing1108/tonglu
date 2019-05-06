@@ -109,7 +109,7 @@ const routes = [
     // 景区推荐
     {
     	path: '/spot',
-		component: spot
+			component: spot
     },
     // 活动咨询
 	{
