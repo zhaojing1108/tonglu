@@ -596,7 +596,7 @@ export default {
 		height: 100px;
 		right: -50px;
 	}
-/* 地图 */
+/* 地图1 */
 	.foot_map{
 		width: 100%;
 		margin-top: 50px;

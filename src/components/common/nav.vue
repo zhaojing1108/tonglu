@@ -9,33 +9,33 @@
 				<div class="nav_text" >
 					<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" style="width:100%">
 						<el-submenu index="8" class="nav_li" style="float:right">
-							<template slot="title"><router-link to="#">关于我们</router-link></template>
+							<template slot="title">关于我们</template>
 							<router-link to="/pages/companypro"><el-menu-item index="8-1">公司简介</el-menu-item></router-link>
 							<router-link to="/pages/recruit"><el-menu-item index="8-2">人才招聘</el-menu-item></router-link>
 							<router-link to="/pages/cooperate"><el-menu-item index="8-4">广告合作</el-menu-item></router-link>
 						</el-submenu> 
 
 						<el-submenu index="7" class="nav_li" style="float:right">
-							<template slot="title"><router-link to="#">景区拓展</router-link></template>
+							<template slot="title">景区拓展</template>
 							<router-link to="/pages/baseshow"><el-menu-item index="7-1">基地展示</el-menu-item></router-link>
 							<router-link to="/pages/stupractice"><el-menu-item index="7-2">学生实践</el-menu-item></router-link>
 							<router-link to="/pages/expand"><el-menu-item index="7-3">拓展产品</el-menu-item></router-link>
 						</el-submenu> 
 						<el-submenu index="6" class="nav_li" style="float:right">
-							<template slot="title"><router-link to="#">旅游指南</router-link></template>
+							<template slot="title">旅游指南</template>
 							<router-link to="/pages/trafficguide"><el-menu-item index="6-1">交通指南</el-menu-item></router-link>
 							<router-link to="/pages/dependtravel"><el-menu-item index="6-2">自助游攻略</el-menu-item></router-link>
 						</el-submenu> 
 
 						<el-submenu index="5" class="nav_li" style="float:right">
-							<template slot="title"><router-link to="#">酒店美食</router-link></template>
+							<template slot="title">酒店美食</template>
 							<router-link to="/pages/food"><el-menu-item index="5-1">桐庐美食</el-menu-item></router-link>
 							<router-link to="/pages/house"><el-menu-item index="5-2">酒店住宿</el-menu-item></router-link>
 						</el-submenu> 
 
 						
 						<el-submenu index="4" class="nav_li" style="float:right">
-							<template slot="title"><router-link to="#">活动资讯</router-link></template>
+							<template slot="title">活动资讯</template>
 							<router-link to="/activity"><el-menu-item index="4-1">景区新闻</el-menu-item></router-link>
 							<router-link to="/pages/hotactivity"><el-menu-item index="4-2">热门活动</el-menu-item></router-link>
 							<router-link to="/pages/travel"><el-menu-item index="4-3">旅游新闻</el-menu-item></router-link>			
@@ -49,7 +49,7 @@
 						</el-menu-item>
 
 						<el-submenu index="2" class="nav_li" style="float:right">
-							<template slot="title" ><router-link class="router_link" to="#">潇洒桐庐</router-link></template>
+							<template slot="title" >潇洒桐庐</template>
 							<router-link  to="/pages/overview_tl"><el-menu-item class="router_link" index="2-1">桐庐概况</el-menu-item></router-link>
 							<router-link  to="/pages/poetic_tl"><el-menu-item class="router_link" index="2-2">诗乡画城</el-menu-item></router-link>
 							<router-link  to="/pages/papercut_tl"><el-menu-item class="router_link" index="2-3">桐庐剪纸</el-menu-item></router-link>

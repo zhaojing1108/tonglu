@@ -22,7 +22,7 @@
    			  	<div class="basetitle">大奇山拓展基地</div>
    			  	<el-row>
 				  	<el-col :span="9">
-				  		<img src="../../../assets/img/baseshow.jpg" alt="">
+				  		<img src="../../../assets/img/baseshow.jpg" alt="" preview="0">
 				  	</el-col>
 				  	<el-col :span="15" class="basecontent">
 				  		<div class="basetext">
@@ -37,7 +37,7 @@
 				<div class="basetitle">红灯笼外婆家拓展基地</div>
 				<el-row>
 				  	<el-col :span="9">
-				  		<img src="../../../assets/img/expand_hong.jpg" alt="">
+				  		<img src="../../../assets/img/expand_hong.jpg" alt="" preview="0">
 				  	</el-col>
 				  	<el-col :span="15" class="basecontent">
 				  		<div class="basetext">
@@ -51,7 +51,7 @@
 				<div class="basetitle">江南龙门湾拓展基地</div>
 				<el-row>
 				  	<el-col :span="9">
-				  		<img src="../../../assets/img/expand_long.jpg" alt="">
+				  		<img src="../../../assets/img/expand_long.jpg" alt="" preview="0">
 				  	</el-col>
 				  	<el-col :span="15" class="basecontent">
 				  		<div class="basetext">
@@ -65,7 +65,7 @@
 				<div class="basetitle">天目溪拓展基地</div>
 				<el-row>
 				  	<el-col :span="9">
-				  		<img src="../../../assets/img/expand_tian.jpg" alt="">
+				  		<img src="../../../assets/img/expand_tian.jpg" alt="" preview="0">
 				  	</el-col>
 				  	<el-col :span="15" class="basecontent">
 				  		<div class="basetext">
@@ -80,7 +80,7 @@
 				<div class="basetitle">桐君山拓展基地</div>
 				<el-row>
 				  	<el-col :span="9">
-				  		<img src="../../../assets/img/expand_tong.jpg" alt="">
+				  		<img src="../../../assets/img/expand_tong.jpg" alt="" preview="0">
 				  	</el-col>
 				  	<el-col :span="15" class="basecontent">
 				  		<div class="basetext">

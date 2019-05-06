@@ -32,7 +32,7 @@
 		 			<div class="right_swiper">
 			 			<el-carousel type="card" height="200px" :autoplay="false">
 						   <el-carousel-item v-for="item of spotImgs" :key="item.id">
-						     <h3><img :src="item.url"/></h3>
+						     <h3><img :src="item.url" preview="0"/></h3>
 						   </el-carousel-item>
 						</el-carousel>
 					</div>
@@ -74,16 +74,16 @@
 				var spotdata= this.spotname.filter(function(item){
 						return item.id == key; 
 				})
-				 var thisname=spotdata[0].name
-				 var thisspotintro=spotdata[0].description
-				 var thistransport=spotdata[0].transportation
-				 var thisimg=spotdata[0].images
-				 var thisengname=spotdata[0].enName
-				 this.nav=thisname;
-				 this.spotnav=thisspotintro;
-				 this.engnav=thisengname;
-				 this.transport=thistransport;
-				 this.spotImgs=thisimg;
+				var thisname=spotdata[0].name
+				var thisspotintro=spotdata[0].description
+				var thistransport=spotdata[0].transportation
+				var thisimg=spotdata[0].images
+				var thisengname=spotdata[0].enName
+				this.nav=thisname;
+				this.spotnav=thisspotintro;
+				this.engnav=thisengname;
+				this.transport=thistransport;
+				this.spotImgs=thisimg;
 			},
 			getHomeInfo (){
 				axios.get(api.spotUrl)//url api
@@ -94,7 +94,7 @@
 				this.spotname=res
 				this.nav=this.spotname[0].name
 				this.engnav=this.spotname[0].enName
-				this.spotnav=this.spotname[0].name
+				this.spotnav=this.spotname[0].description
 				this.transport=this.spotname[0].transportation
 				this.spotImgs=this.spotname[0].images
 			}

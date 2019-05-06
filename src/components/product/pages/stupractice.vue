@@ -17,7 +17,7 @@
 	 		<div class="rightmain">
 	 			<ul class="pralist">
 	 				<li v-for="item of pralist" :key="item.id">
-	 					<img :src="item.imageUrl" class="pralistimg"/>
+	 					<img :src="item.imageUrl" class="pralistimg" preview="0"/>
 	 					<p>{{item.msg}}</p>
 	 				</li>
 	 			</ul>
