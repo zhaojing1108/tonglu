@@ -4,7 +4,7 @@
 		<!-- 导航轮播 -->
 		<template>
 			<!-- 轮播图 -->
-			<el-carousel style="height: 500px; position: relative;" :interval="3000" arrow="always">
+			<el-carousel style="height: 500px !important; position: relative;" class="indexbanner" :interval="3000" arrow="always">
 				<el-carousel-item  v-for="(imgurl, index) in bannerList" v-show="index===mark" :key="index" >
 					<router-link to="/spot"><img :src='imgurl.imgAddress' alt="图片加载中。。。"></router-link>
 				</el-carousel-item>
@@ -343,7 +343,10 @@ export default {
 		position: relative;
 	}
 	.el-carousel__container .el-carousel__item{
-		height: 500px;
+		height: 500px !important;
+	}
+	.indexbanner >>> .el-carousel__container{
+		height: 500px !important;
 	}
 /* 轮播固定栏目 */
 	.fix_bar{
