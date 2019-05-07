@@ -107,11 +107,16 @@
 		      handleSelect(key, keyPath) {
 						//console.log(key);
 					},
+					//导航高亮切换
 					getPath(){
 						var _this=this
 						var href=window.location.href
 						href=href.substring(href.lastIndexOf("/")+1,href.length)
 						//console.log(href)
+						if(href==""){
+							_this.activeIndex=_this.navConfig["index"]
+							return
+						}
 						var fdStart = href.indexOf("newsDetails")
 						var actStart = href.indexOf("acitivityDetails")
 						var travelStart = href.indexOf("travelDetails")

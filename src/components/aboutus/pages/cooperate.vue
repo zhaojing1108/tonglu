@@ -9,7 +9,7 @@
 	 			<div class="righttitle_r">
 	 				<el-breadcrumb separator="/">
 					  <el-breadcrumb-item :to="{ path: '/' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
-					  <el-breadcrumb-item><a>关于我们</a></el-breadcrumb-item>
+					  <el-breadcrumb-item><router-link to="/pages/companypro">关于我们</router-link></el-breadcrumb-item>
 					  <el-breadcrumb-item><span style="color: #35abd9;">广告合作</span></el-breadcrumb-item>
 					</el-breadcrumb>
 	 			</div>

@@ -9,7 +9,7 @@
 	 			<div class="righttitle_r">
 	 				<el-breadcrumb separator="/">
 					  <el-breadcrumb-item :to="{ path: '/' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
-					  <el-breadcrumb-item><a>潇洒桐庐</a></el-breadcrumb-item>
+					  <el-breadcrumb-item><router-link to="/pages/overview_tl">潇洒桐庐</router-link></el-breadcrumb-item>
 					  <el-breadcrumb-item><span style="color: #35abd9;">桐庐名人</span></el-breadcrumb-item>
 					</el-breadcrumb>
 	 			</div>

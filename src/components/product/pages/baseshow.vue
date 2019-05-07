@@ -9,7 +9,7 @@
 	 			<div class="righttitle_r">
 	 				<el-breadcrumb separator="/">
 					  <el-breadcrumb-item :to="{ path: '/' }"><span style="color: #777;font-weight: 300;">首页</span></el-breadcrumb-item>
-					  <el-breadcrumb-item><a>景区拓展</a></el-breadcrumb-item>
+					  <el-breadcrumb-item>景区拓展</el-breadcrumb-item>
 					  <el-breadcrumb-item><span style="color: #35abd9;">基地展示</span></el-breadcrumb-item>
 					</el-breadcrumb>
 	 			</div>
