@@ -16,7 +16,7 @@
 						<el-menu-item index="news"  class="activitytabli">
 							景区新闻
 						</el-menu-item>
-						<el-menu-item index="acitivity" class="activitytabli">
+						<el-menu-item index="hotactivity" class="activitytabli">
 							热门活动
 						</el-menu-item>
 						<el-menu-item index="travel" class="activitytabli">
@@ -38,8 +38,11 @@
 		data(){
 			return{
 				breadcrumbItems: '景区新闻',
-				navIndex:'news',
+				navIndex:'hotactivity',
 			}
+		},
+		watch:{
+		  '$route':'getPath'
 		},
 		methods:{
 	      	handleSelect(key, keyPath){	      
@@ -49,7 +52,7 @@
 	            	this.$router.push('/pages/news');
 					this.breadcrumbItems  = '景区新闻'
 		            break;
-		            case 'acitivity':
+		            case 'hotactivity':
 	            	this.$router.push('/pages/hotactivity');
 					this.breadcrumbItems = '热门活动'
 					break;	
@@ -59,11 +62,19 @@
 		            break;	          	
 				}
 			  },
-		
+			 //监听路由
+	      	getPath(){
+				var _this=this
+				var href=window.location.href
+				href=href.substring(href.lastIndexOf("/")+1,href.length);
+				_this.navIndex=href
+				//console.log(_this.navIndex)
+			}	
 		},
+		//监听路由
 		mounted(){
-		
-		},
+			this.getPath()
+		}
 	}
 </script>
 
@@ -135,12 +146,12 @@
 	}
 	.activitytabli{
 		width: 100px;
-		height: 40px;
-		line-height: 40px;
+		height: 40px !important;
+		line-height: 40px !important;
 		font-size: 14px;
 		border-radius: 0;
 		text-align:center;
-		margin-right:20px;
+		margin-right:20px !important;
 		color: #595959;
 	}
 	.activity_nav .is-active{

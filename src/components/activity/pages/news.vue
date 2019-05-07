@@ -2,15 +2,15 @@
 	<div>
 		<div class="news_content">
  			<ul class="newslist" >				
-				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:25px;border-bottom:1px solid #ebebeb;">
+				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:25px;border-bottom:1px solid #ebebeb;" @click="change(item.id)">
 					<el-row style="width:1017px">
 						<el-col :span="4"><img :src="item.imgUrl"/></el-col>
 						<el-col :span="20">
 							<el-row>
-								<el-col :span="14"><h4 @click="change(item.title,item.content)">{{item.title}}</h4></el-col>
+								<el-col :span="14"><h4>{{item.title}}</h4></el-col>
 								<el-col :span="6"><span class="date">{{item.createTime | formatDate }}</span></el-col>									
 							</el-row>
-							<p>{{item.description}}</p>
+							<p style="margin-top:10px; overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">{{item.description}}</p>
 						</el-col>
 					</el-row>
  				</li>
@@ -29,15 +29,14 @@ import {formatDate} from './../../../assets/js/date.js' //在组件中引用date
 		data(){
 			return{
 				activity:[],
-				flag:true
 			}
 		},
 		created(){
 			this.getActivity()
 		},
 		methods:{
-			change(title,content){
-				this.$router.push({name:"newsDetails" ,query:{title:title,content:content}})
+			change(id){
+				this.$router.push({name:"newsDetails" ,query:{id:id}})
 			},
 			getActivity(){
 				this.axios.get(api.activityUrl).then(response => {
@@ -73,6 +72,9 @@ import {formatDate} from './../../../assets/js/date.js' //在组件中引用date
 	line-height: 25px;
 	cursor: pointer;
 }
+.news_content li:hover{
+	background: #eee !important;
+}
 .news_content li img{
 	padding-left: 0;
 	height: 120px;
@@ -82,6 +84,10 @@ import {formatDate} from './../../../assets/js/date.js' //在组件中引用date
 .news_content li h4{
 	cursor: pointer;
 	color: #45a2cc;
+	display: block;
+	overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 .news_content .date{
 	font-size: 12px;

@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<div id="newsDetails" >
-			<div>
-				<h4>{{this.$route.query.title}}</h4>
-				<span>发布日期：{{this.$route.query.createTime | formatDate}}</span>
-				<p v-html="this.$route.query.content" style="margin-top:40px">>{{this.$route.query.content}}</p>
+			<div v-for="item of activity" :key="item.id">
+				<h4>{{item.title}}</h4>
+				<span>发布日期：{{item.createTime | formatDate}}</span>
+				<p v-html="item.content" style="margin-top:40px">>{{item.content}}</p>
 			</div>
 		</div>
 	</div>	
@@ -16,7 +16,7 @@
 		name: 'NewsDetails',
 		data(){
 			return{
-				activity:{},
+				activity:[],
 			}
 		},
 		filters: {
@@ -24,7 +24,24 @@
 				var date = new Date(time);
 				return formatDate(date, 'yyyy.MM.dd');   //年月日 格式自己定义   'yyyy : MM : dd'  例 2018年12月5日的格式
 			},
-    	}		
+		},
+		created(){
+			this.getActivity()
+		},
+		methods:{
+			getActivity(){
+				this.axios.get(api.activityUrl).then(response => {
+					for(let i = 0; i<response.data.length;i++){					
+						if(response.data[i].id == this.$route.query.id){
+							this.activity.push(response.data[i])
+							console.log(this.activity)
+						}				
+					}	
+				}).catch(error => {
+					console.log(error)
+				})
+			},
+		}
 	}
 </script>
 
