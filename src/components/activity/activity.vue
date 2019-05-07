@@ -10,18 +10,20 @@
 						<el-breadcrumb-item><span style="color: #35abd9;">{{breadcrumbItems}}</span></el-breadcrumb-item>						
 					</el-breadcrumb>
 				</div>
-				<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" 
-				v-if="$route.name !== 'acitivityDetails' && $route.name !== 'newsDetails' && $route.name !== 'travelDetails' ">
-					<el-menu-item index="news"  class="activitytabli">
-						景区新闻
-					</el-menu-item>
-					<el-menu-item index="acitivity" class="activitytabli">
-					    热门活动
-					</el-menu-item>
-					<el-menu-item index="travel" class="activitytabli">
-					   旅游新闻
-					</el-menu-item>
-				</el-menu>
+				<transition>
+					<el-menu class="activity_nav" @select="handleSelect"  mode="horizontal"  :default-active="navIndex" 
+					v-if="$route.name !== 'acitivityDetails' && $route.name !== 'newsDetails' && $route.name !== 'travelDetails' ">
+						<el-menu-item index="news"  class="activitytabli">
+							景区新闻
+						</el-menu-item>
+						<el-menu-item index="acitivity" class="activitytabli">
+							热门活动
+						</el-menu-item>
+						<el-menu-item index="travel" class="activitytabli">
+						旅游新闻
+						</el-menu-item>
+					</el-menu>
+				</transition>
 				<div class="news">
 					<router-view></router-view>
 				</div>
