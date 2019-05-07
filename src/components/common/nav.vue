@@ -14,7 +14,6 @@
 							<router-link to="/pages/recruit"><el-menu-item index="8-2">人才招聘</el-menu-item></router-link>
 							<router-link to="/pages/cooperate"><el-menu-item index="8-4">广告合作</el-menu-item></router-link>
 						</el-submenu> 
-
 						<el-submenu index="7" class="nav_li" style="float:right">
 							<template slot="title">景区拓展</template>
 							<router-link to="/pages/baseshow"><el-menu-item index="7-1">基地展示</el-menu-item></router-link>
@@ -57,8 +56,8 @@
 							<router-link  to="/pages/celebrity_tl"><el-menu-item class="router_link" index="2-5">桐庐名人</el-menu-item></router-link>
 						</el-submenu>
 
-						<el-menu-item index="1" class="nav_li" style="float:right">
-							<router-link class="router_link" to="/">网站首页</router-link>
+						<el-menu-item index="1" class="nav_li indexrouter" style="float:right">
+							<router-link class="router_link" to="/" style="width:100%;height:100%;display:block !important;">网站首页</router-link>
 						</el-menu-item>
 				
 					</el-menu>	
@@ -179,12 +178,16 @@
 		}
 	}
 	.el-icon-arrow-down:before {
-	    display: none;
+	   
 	}
 	.righttitle_r a{
 		font-size: 12px;
 	}
 	.el-submenu {
-		width: 85px !important;
+		width: 90px !important;
+		margin-right: 5px;
+	}
+	.indexrouter a{
+		display: block !important;
 	}
 </style>

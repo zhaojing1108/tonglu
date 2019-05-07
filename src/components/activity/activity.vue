@@ -135,12 +135,12 @@
 	}
 	.activitytabli{
 		width: 100px;
-		height: 40px;
-		line-height: 40px;
+		height: 40px !important;
+		line-height: 40px !important;
 		font-size: 14px;
 		border-radius: 0;
 		text-align:center;
-		margin-right:20px;
+		margin-right:20px !important;
 		color: #595959;
 	}
 	.activity_nav .is-active{
