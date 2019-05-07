@@ -4,7 +4,7 @@
 		<!-- 导航轮播 -->
 		<template>
 			<!-- 轮播图 -->
-			<el-carousel style="height: 500px; position: relative;" :interval="3000" arrow="always">
+			<el-carousel style="height: 500px !important; position: relative;" class="indexbanner" :interval="3000" arrow="always">
 				<el-carousel-item  v-for="(imgurl, index) in bannerList" v-show="index===mark" :key="index" >
 					<router-link to="/spot"><img :src='imgurl.imgAddress' alt="图片加载中。。。"></router-link>
 				</el-carousel-item>
@@ -51,7 +51,7 @@
 			<div class="middle_content">
 				<img class="middle_content_nav" src="./../../assets/img/index_activity.png" alt="">
 				<el-row style="padding-top: 20px; height:250px; overflow:hidden">
-				  	<el-col :span="10" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
+				  	<el-col :span="11" class="el_tab"><div class="grid-content bg-purple" style="width: 100%;">
 				  		<el-tabs :tab-position="tabPosition" class="news_img newchose" label="right" style="height: 240px;" @tab-click="handleClick">
 			    			<el-tab-pane label="热门活动"><img :src="rmhdimgUrl" alt="" style="width:95%;height:100%"></el-tab-pane>
 			    			<el-tab-pane label="景区新闻"><img :src="jqxwimgUrl" alt="" style="width:95%;height:100%"></el-tab-pane>
@@ -70,8 +70,8 @@
 						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 							<ul class="newsText">
 								<li  v-for="item of rmhdArray" :key="item.id" @click="goActivity(item.title,item.content)">
-									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
-									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
+									<p class="newtexttitle">{{item.title}}</p>
+									<div class="newtextdesp">{{item.description}}</div>
 								</li>
 							</ul>							
 						</div></el-col>
@@ -88,8 +88,8 @@
 						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 							<ul class="newsText">
 								<li  v-for="item of jqxwArray" :key="item.id" @click="goNewsdatails(item.title,item.content)">
-									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
-									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
+									<p class="newtexttitle">{{item.title}}</p>
+									<div class="newtextdesp">{{item.description}}</div>
 								</li>
 							</ul>							
 						</div></el-col>
@@ -106,8 +106,8 @@
 						<el-col :span="12"><div class="grid-content bg-purple" style="margin-left: 14%;">
 							<ul class="newsText">
 								<li  v-for="item of lyxwArray" :key="item.id" @click="gotravelDetails(item.title,item.content)">
-									<p style="color: #444444 !important;padding-top: 3px;">{{item.title}}</p>
-									<p style="color: #a2a2a2;font-size: 12px;margin-top: 2px !important;">{{item.description}}</p>
+									<p class="newtexttitle">{{item.title}}</p>
+									<div class="newtextdesp">{{item.description}}</div>
 								</li>
 							</ul>							
 						</div></el-col>
@@ -343,7 +343,10 @@ export default {
 		position: relative;
 	}
 	.el-carousel__container .el-carousel__item{
-		height: 500px;
+		height: 500px !important;
+	}
+	.indexbanner >>> .el-carousel__container{
+		height: 500px !important;
 	}
 /* 轮播固定栏目 */
 	.fix_bar{
@@ -406,7 +409,7 @@ export default {
 		padding-top: 5px;
 	}
 	.index .wrap .middle_content .newsText li{
-		height: 52px;
+		height: 54px;
 		width: 100%;
 		overflow: hidden;
 		margin-bottom: 6px;
@@ -630,4 +633,20 @@ export default {
 		padding-top: 20px;
 		background: #35abd9;
 	}
+	.newtexttitle{
+		color: #444444;
+		padding-top: 2px;
+	}
+	.newsText li:hover{
+		background: #eee;
+		color:red !important;
+	}
+	.newtextdesp{
+		color: #a2a2a2;
+		font-size: 12px;
+		height:23px !important;
+		overflow: hidden; 
+		margin-top: 6px;
+	}
+
 </style>
