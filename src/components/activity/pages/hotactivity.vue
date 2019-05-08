@@ -2,7 +2,7 @@
 	<div>
 		<div class="news_content">
  			<ul class="newslist" >				
-				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:25px;border-bottom:1px solid #ebebeb;" @click="change(item.title,item.content,item.createTime)">
+				<li v-for="item of activity" :key="item.id" style="margin:15px 0 10px;padding-bottom:25px;border-bottom:1px solid #ebebeb;" @click="change(item.id)">
 					<el-row style="width:1017px">
 						<el-col :span="4"><img :src="item.imgUrl"/></el-col>
 						<el-col :span="20">
@@ -29,15 +29,14 @@ import {formatDate} from './../../../assets/js/date.js' //在组件中引用date
 		data(){
 			return{
 				activity:[],
-				flag:true
 			}
 		},
 		created(){
 			this.getActivity()
 		},
 		methods:{
-			change(title,content,createTime){
-				this.$router.push({name:"acitivityDetails" ,query:{title:title,content:content,createTime:createTime}})
+			change(id){
+				this.$router.push({name:"acitivityDetails" ,query:{id:id}})
 			},
 			getActivity(){
 				this.axios.get(api.activityUrl).then(response => {							
